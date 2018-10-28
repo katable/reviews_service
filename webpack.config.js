@@ -2,8 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  context: __dirname + '/client/components',
-  entry: './index.js',
+  entry: './client/src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'client/dist'),
+    filename: 'bundle.js',
+  },
   module: {
     loaders: [
       {
@@ -16,8 +19,5 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js',
-  }
+ 
 };
