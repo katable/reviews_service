@@ -18281,6 +18281,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Reviews = __webpack_require__(28);
+
+var _Reviews2 = _interopRequireDefault(_Reviews);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18292,27 +18296,44 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      reviews: []
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.fetchReviews();
+    }
+  }, {
+    key: 'fetchReviews',
+    value: function fetchReviews() {
+      var _this2 = this;
+
+      fetch('/restaurant/1/reviews').then(function (reviews) {
+        return reviews.json();
+      }).then(function (reviewsJSON) {
+        _this2.setState({
+          reviews: reviewsJSON
+        });
+      }).catch(function () {
+        console.log("Error: Reviews not found.");
+      });
+    }
+  }, {
     key: 'render',
-
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     reviews: []
-    //   }
-    // }
-
     value: function render() {
       return _react2.default.createElement(
         'div',
         null,
-        'Hi'
+        _react2.default.createElement(_Reviews2.default, { sampleReviews: this.state.reviews })
       );
     }
   }]);
@@ -18321,6 +18342,131 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Reviews = function Reviews(props) {
+  return _react2.default.createElement(
+    "div",
+    { className: "review" },
+    props.sampleReviews.map(function (sampleReview) {
+      return _react2.default.createElement(
+        "div",
+        { className: "review-container" },
+        _react2.default.createElement(
+          "div",
+          { className: "review-time" },
+          _react2.default.createElement(
+            "span",
+            null,
+            "Dined on "
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            sampleReview.review_time
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "ratings-container" },
+          _react2.default.createElement(
+            "span",
+            null,
+            _react2.default.createElement(
+              "span",
+              null,
+              "Overall "
+            ),
+            sampleReview.overall_rating
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            _react2.default.createElement(
+              "span",
+              null,
+              " Food "
+            ),
+            sampleReview.food_rating
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            _react2.default.createElement(
+              "span",
+              null,
+              " Service "
+            ),
+            sampleReview.service_rating
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            _react2.default.createElement(
+              "span",
+              null,
+              " Ambience "
+            ),
+            sampleReview.ambience_rating
+          )
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "div",
+          { classname: "review-text" },
+          _react2.default.createElement(
+            "span",
+            null,
+            sampleReview.review_text
+          )
+        ),
+        _react2.default.createElement("br", null)
+      );
+    })
+  );
+};
+
+// stars //date
+// overall //food //service //ambience
+// review
+
+// on side
+// icon
+// username
+// location
+// number of reviews next to speech bubble
+
+exports.default = Reviews;
+
+// { props.sampleReviews.map((sampleReview) =>
+//   (<div> 
+//     <div className="review-container">
+//       {sampleReview.review_time}
+//     </div>
+//     <div className="ratings-container">
+//       <span>{sampleReview.overall_rating}</span>
+//       <span>{sampleReview.food_rating}</span>
+//       <span>{sampleReview.service_rating}</span>
+//       <span>{sampleReview.ambience_rating}</span>
+//     </div>
+//   <div>)
+// )};
 
 /***/ })
 /******/ ]);

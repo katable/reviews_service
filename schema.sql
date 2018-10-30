@@ -11,6 +11,8 @@ CREATE TABLE restaurant (
 CREATE TABLE user (
   user_id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) NOT NULL,
+  city VARCHAR(50) NULL,
+  state VARCHAR(60) NULL,
   PRIMARY KEY (user_id)
 );
 

@@ -13,7 +13,7 @@ connection.connect(function(err) {
   } else {
     console.log("Connection made.");
     //the moment the db connects, we start adding info into restaurants
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 100; i++) {
       let restaurantName = faker.company.companyName();
       insertIntoRestaurant(restaurantName, (err, results) => {
         if (err) {
@@ -25,20 +25,22 @@ connection.connect(function(err) {
     }
     for (let i = 0; i < 20; i++) {
       let username = faker.internet.userName();
-      insertIntoUser(username, (err, results) => {
+      let city = faker.address.city();
+      let state = faker.address.state();   
+      insertIntoUser(username, city, state, (err, results) => {
         if (err) {
           throw new Error(err);
         } else {
-          console.log(`${username} added successfully`);
+          console.log(`${username} from ${city}, ${state} added successfully`);
         }
       });
     }
-    for (let i = 0; i < 3; i++) {
-      let restaurant_id = Math.ceil(Math.random() * 15);
+    for (let i = 0; i < 150; i++) {
+      let restaurant_id = Math.ceil(Math.random() * 100);
       let user_id = Math.ceil(Math.random() * 20);
       let review = faker.lorem.lines();
       let author = faker.internet.userName();
-      let date = faker.date.past();
+      let date = faker.date.recent();
       let overall_rating = Math.floor(Math.random() * 6);
       let food_rating = Math.floor(Math.random() * 6);
       let service_rating = Math.floor(Math.random() * 6);
@@ -61,15 +63,15 @@ var insertIntoRestaurant = function(name, callback) {
   });
 }
 
-var insertIntoUser = function(username, callback) {
-  var query = `INSERT INTO user (username) VALUES ("${username}")`;
-  connection.query(query, [username], (error, results, fields) => {
+var insertIntoUser = function(username, city, state, callback) {
+  var query = `insert into user (username, city, state) values ("${username}", "${city}", "${state}")`;
+  connection.query(query, [username, city, state], (error, results, fields) => {
     callback(error, null);
   });
 }
 
 var insertIntoReview = function(restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, callback) {
-  var query = `INSERT INTO review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating) VALUES (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating})`;
+  var query = `insert into review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating) values (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating})`;
   connection.query(query, [restaurant_id, user_id, review_text, author, review_time, overall_rating, food_rating, service_rating, ambience_rating], (error, results, fields) => {
     if (error) {
       callback(error, null);
@@ -81,7 +83,7 @@ var insertIntoReview = function(restaurant_id, user_id, author, review_text, rev
 
 //getAllReviews: select all reviews for the restaurant.
 const getAllReviews = function(restaurant_id, callback) {
-  const query = `select * from review where restaurant_id=${restaurant_id}`; 
+  const query = `select * from review where restaurant_id=${restaurant_id}`;
   connection.query(query, (error, results, fields) => {
     if (error) { 
       callback(error, null);
