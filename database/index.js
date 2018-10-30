@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const faker = require('faker');
+const fakerator = require('fakerator');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -40,12 +41,13 @@ connection.connect(function(err) {
       let user_id = Math.ceil(Math.random() * 20);
       let review = faker.lorem.lines();
       let author = faker.internet.userName();
-      let date = faker.date.recent();
+      let date = faker.date.between('2015-01-01', '2018-10-29'); //https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
       let overall_rating = Math.floor(Math.random() * 6);
       let food_rating = Math.floor(Math.random() * 6);
       let service_rating = Math.floor(Math.random() * 6);
       let ambience_rating = Math.floor(Math.random() * 6);
-      insertIntoReview(restaurant_id, user_id, author, review,  date, overall_rating, food_rating, service_rating, ambience_rating, (err, results) => {
+      let restaurantName = faker.company.companyName();
+      insertIntoReview(restaurant_id, user_id, author, review, date, overall_rating, food_rating, service_rating, ambience_rating, restaurantName, (err, results) => {
         if (err) {
           throw new Error(err);
         } else {
@@ -70,9 +72,9 @@ var insertIntoUser = function(username, city, state, callback) {
   });
 }
 
-var insertIntoReview = function(restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, callback) {
-  var query = `insert into review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating) values (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating})`;
-  connection.query(query, [restaurant_id, user_id, review_text, author, review_time, overall_rating, food_rating, service_rating, ambience_rating], (error, results, fields) => {
+var insertIntoReview = function(restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName, callback) {
+  var query = `insert into review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName) values (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating}, "${restaurantName}")`;
+  connection.query(query, [restaurant_id, user_id, review_text, author, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName], (error, results, fields) => {
     if (error) {
       callback(error, null);
     } else {

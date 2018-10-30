@@ -27,6 +27,7 @@ CREATE TABLE review (
     food_rating INT NOT NULL,
     service_rating INT NOT NULL,
     ambience_rating INT NOT NULL,
+    restaurantName VARCHAR(50) NOT NULL,
     PRIMARY KEY (review_id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id),
     FOREIGN KEY (user_id) REFERENCES user (user_id)

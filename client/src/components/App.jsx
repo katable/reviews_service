@@ -1,5 +1,6 @@
 import React from 'react';
 import Reviews from './Reviews.jsx';
+import NoReviews from './NoReviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,10 +27,22 @@ class App extends React.Component {
     .catch(() => {console.log("Error: Reviews not found.")}
   )};
 
+  renderReviews() {
+    return (
+      <Reviews sampleReviews={this.state.reviews}/>
+    )
+  }
+
+  renderNoReviews() {
+    return (
+      <NoReviews sampleReviews={this.state.reviews} />
+    )
+  }
+
   render(){
     return (
       <div>
-        <Reviews sampleReviews={this.state.reviews}/>
+        {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
       </div>
     )
   }

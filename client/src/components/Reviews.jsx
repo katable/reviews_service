@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Reviews = (props) => (
   <div className="review">
@@ -9,14 +9,26 @@ const Reviews = (props) => (
             <span>Dined on </span><span>{sampleReview.review_time}</span>
           </div>
           <div className="ratings-container">
-            <span><span>Overall </span>{sampleReview.overall_rating}</span>
-            <span><span> Food </span>{sampleReview.food_rating}</span>
-            <span><span> Service </span>{sampleReview.service_rating}</span>
-            <span><span> Ambience </span>{sampleReview.ambience_rating}</span>
+            <span>Overall </span>
+            <span className="rating">{sampleReview.overall_rating}</span>
+            <span> Food </span>
+            <span className="rating">{sampleReview.food_rating}</span>
+            <span> Service </span>
+            <span className="rating">{sampleReview.service_rating}</span>
+            <span> Ambience </span>
+            <span className="rating">{sampleReview.ambience_rating}</span>
           </div>
           <br />
           <div classname="review-text">
             <span>{sampleReview.review_text}</span>
+            <br />
+            <br />
+            <div className="icon-container">
+              <img src= './flag.png' />
+              <span> Report </span>
+              <img src='./helpful.png' />
+              <span> Helpful </span>
+            </div>
           </div>
           <br />
         </div>
@@ -25,29 +37,4 @@ const Reviews = (props) => (
   </div>
 )
 
-// stars //date
-// overall //food //service //ambience
-// review
-
-// on side
-// icon
-// username
-// location
-// number of reviews next to speech bubble
-
 export default Reviews;
-
-
-    // { props.sampleReviews.map((sampleReview) =>
-    //   (<div> 
-    //     <div className="review-container">
-    //       {sampleReview.review_time}
-    //     </div>
-    //     <div className="ratings-container">
-    //       <span>{sampleReview.overall_rating}</span>
-    //       <span>{sampleReview.food_rating}</span>
-    //       <span>{sampleReview.service_rating}</span>
-    //       <span>{sampleReview.ambience_rating}</span>
-    //     </div>
-    //   <div>)
-    // )};

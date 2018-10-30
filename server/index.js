@@ -57,13 +57,14 @@ app.post('/reviews', (req, res) => {
       overall_rating: Joi.number().min(0).max(5).required(), 
       food_rating: Joi.number().min(0).max(5).required(), 
       service_rating: Joi.number().min(0).max(5).required(), 
-      ambience_rating: Joi.number().min(0).max(5).required()
+      ambience_rating: Joi.number().min(0).max(5).required(),
+      restaurantName: Joi.string().min(2).max(30)
     });
     Joi.validate(req.body, schema, (err, results) => {
       if (err) {
         res.status(404).send("unable to post: " + err);
       } else {
-        db.insertIntoReview(req.body.restaurant_id, req.body.user_id, req.body.author, req.body.review_text, req.body.review_time, req.body.overall_rating, req.body.food_rating, req.body.service_rating, req.body.ambience_rating, (err, results) => {
+        db.insertIntoReview(req.body.restaurant_id, req.body.user_id, req.body.author, req.body.review_text, req.body.review_time, req.body.overall_rating, req.body.food_rating, req.body.service_rating, req.body.ambience_rating, restaurantName, (err, results) => {
           if (err) {
             res.status(404).send("unable to post");
           } else {
