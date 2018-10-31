@@ -18377,6 +18377,10 @@ var _User = __webpack_require__(29);
 
 var _User2 = _interopRequireDefault(_User);
 
+var _Stars = __webpack_require__(32);
+
+var _Stars2 = _interopRequireDefault(_Stars);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Reviews = function Reviews(props) {
@@ -18397,6 +18401,11 @@ var Reviews = function Reviews(props) {
         _react2.default.createElement(
           'div',
           { className: 'review-text-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'star-container' },
+            _react2.default.createElement(_Stars2.default, { starRating: sampleReview.overall_rating })
+          ),
           _react2.default.createElement(
             'div',
             { className: 'review-time' },
@@ -18616,7 +18625,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//splices out any non-string characters and gets the capitalized characters to display in icon
 function getInitials(name) {
   var newName = name.replace(/[^A-Z]/g, '');
   return newName.toUpperCase();
@@ -18636,28 +18644,40 @@ var UserIcon = function UserIcon(props) {
 
 exports.default = UserIcon;
 
-// import React from 'react';
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// function getInitials(name) {
-//   let characters = name.split("");
-//   let str = "";
-//   for (let i = 0; i < characters.length; i++) {
-//         if (characters[i] === characters[i].toUpperCase()) {
-//           str += characters[i];
-//         }
-//       }
-//   return str;
-// }
+"use strict";
 
-// const UserIcon = (props) => (
-//   <div className = "profile-icon">
-//     <div className = "name">
-//       {getInitials(props.name)}
-//     </div>
-//   </div>
-// )
 
-// export default UserIcon;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function countRatings(rating) {
+  var numStarsUnrated = 5 - rating;
+  return numStarsUnrated;
+}
+
+var Stars = function Stars(props) {
+  return _react2.default.createElement(
+    "div",
+    { className: "stars-component" },
+    countRatings(props.starRating)
+  );
+};
+
+exports.default = Stars;
+
+//ratings: 3
+//numStarsUnrated: 5-3 = 2
 
 /***/ })
 /******/ ]);

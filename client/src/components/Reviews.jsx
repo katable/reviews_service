@@ -1,5 +1,6 @@
 import React from 'react';
 import User from './User.jsx';
+import Stars from './Stars.jsx';
 
 const Reviews = (props) => (
   <div className="review">
@@ -12,6 +13,12 @@ const Reviews = (props) => (
               state={sampleReview.state ? sampleReview.state : ""}/>
           </div>
           <div className="review-text-container">
+            <div className="star-container">
+              <Stars starRating={sampleReview.overall_rating} /> 
+
+
+
+            </div>
             <div className="review-time">
               <span>Dined on </span>
               <span>{sampleReview.review_time.slice(0,15)}</span>
