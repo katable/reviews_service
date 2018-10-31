@@ -32,4 +32,3 @@ CREATE TABLE review (
     FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id),
     FOREIGN KEY (user_id) REFERENCES user (user_id)
 );
-

@@ -8,56 +8,6 @@ var connection = mysql.createConnection({
   database: 'reviewsDb'
 });
 
-connection.connect(function(err) {
-  if (err) {
-    throw err; 
-  } else {
-    console.log("Connection made.");
-    //the moment the db connects, we start adding info into restaurants
-    for (let i = 0; i < 100; i++) {
-      let restaurantName = faker.company.companyName();
-      insertIntoRestaurant(restaurantName, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log(`${restaurantName} added successfully`);
-        }
-      });
-    }
-    for (let i = 0; i < 20; i++) {
-      let username = faker.internet.userName();
-      let city = faker.address.city();
-      let state = faker.address.state();   
-      insertIntoUser(username, city, state, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log(`${username} from ${city}, ${state} added successfully`);
-        }
-      });
-    }
-    for (let i = 0; i < 150; i++) {
-      let restaurant_id = Math.ceil(Math.random() * 100);
-      let user_id = Math.ceil(Math.random() * 20);
-      let review = faker.lorem.lines();
-      let author = faker.internet.userName();
-      let date = faker.date.between('2015-01-01', '2018-10-29'); //https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
-      let overall_rating = Math.floor(Math.random() * 6);
-      let food_rating = Math.floor(Math.random() * 6);
-      let service_rating = Math.floor(Math.random() * 6);
-      let ambience_rating = Math.floor(Math.random() * 6);
-      let restaurantName = faker.company.companyName();
-      insertIntoReview(restaurant_id, user_id, author, review, date, overall_rating, food_rating, service_rating, ambience_rating, restaurantName, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log('Review added successfully.');
-        }
-      });
-    }
-  }
-});
-
 var insertIntoRestaurant = function(name, callback) {
   var query = `insert into restaurant (name) values ("${name}")`;
   connection.query(query, [name], (error, results, fields) => {
@@ -83,14 +33,17 @@ var insertIntoReview = function(restaurant_id, user_id, author, review_text, rev
   });
 }
 
-//getAllReviews: select all reviews for the restaurant.
-const getAllReviews = function(restaurant_id, callback) {
-  const query = `select * from review where restaurant_id=${restaurant_id}`;
-  connection.query(query, (error, results, fields) => {
-    if (error) { 
+//get all reviews for a restaurant as well as user information for each review based on specified id
+const getAllReviews = function (restaurant_id, callback) {
+  const query = `select * from user inner join review on user.user_id=review.user_id`;
+  connection.query(query, [restaurant_id], (error, results) => {
+    if (error) {
       callback(error, null);
     } else {
-      callback(null, results);
+      let filteredByRestaurantId = results.filter((result) => {
+        return result.restaurant_id = restaurant_id;
+      });
+      callback(null, filteredByRestaurantId);
     }
   });
 }
@@ -142,6 +95,52 @@ const patchReview = function(updatedText, newOverallRating, newFoodRating, newSe
     }
   });
 }
+
+function seedData(){
+  //the moment the db connects, we start adding info into restaurants
+  for (let i = 0; i < 100; i++) {
+    let restaurantName = faker.company.companyName();
+    insertIntoRestaurant(restaurantName, (err, results) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        console.log(`${restaurantName} added successfully`);
+      }
+    });
+  }
+  for (let i = 0; i < 20; i++) {
+    let username = faker.internet.userName();
+    let city = faker.address.city();
+    let state = faker.address.state();   
+    insertIntoUser(username, city, state, (err, results) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        console.log(`${username} from ${city}, ${state} added successfully`);
+      }
+    });
+  }
+  for (let i = 0; i < 150; i++) {
+    let restaurant_id = Math.ceil(Math.random() * 100);
+    let user_id = Math.ceil(Math.random() * 20);
+    let review = faker.lorem.lines();
+    let author = faker.internet.userName();
+    let date = faker.date.between('2015-01-01', '2018-10-29'); 
+    let overall_rating = Math.floor(Math.random() * 6);
+    let food_rating = Math.floor(Math.random() * 6);
+    let service_rating = Math.floor(Math.random() * 6);
+    let ambience_rating = Math.floor(Math.random() * 6);
+    let restaurantName = faker.company.companyName();
+    insertIntoReview(restaurant_id, user_id, author, review, date, overall_rating, food_rating, service_rating, ambience_rating, restaurantName, (err, results) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        console.log('Review added successfully.');
+      }
+    });
+  }
+}
+seedData();
 
 module.exports.getAllReviews = getAllReviews;
 module.exports.insertIntoReview = insertIntoReview;

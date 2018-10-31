@@ -5,7 +5,7 @@ const NoReviews = (props) => (
         <h1>Be The First to Review This Restaurant</h1>
         <p>Write a review</p>
         <br/>
-        <p>At present, this restaurant has no reviews. Please add a review after your dining experience to help others make a decision about where to eat.</p> 
+        <p>At present, {props.sampleReviews.restaurantName} has no reviews. Please add a review after your dining experience to help others make a decision about where to eat.</p> 
     </div>
 )
 

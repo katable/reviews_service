@@ -29,13 +29,13 @@ class App extends React.Component {
 
   renderReviews() {
     return (
-      <Reviews sampleReviews={this.state.reviews}/>
+      <Reviews sampleReviews={this.state.reviews} />
     )
   }
 
   renderNoReviews() {
     return (
-      <NoReviews sampleReviews={this.state.reviews} />
+      <NoReviews sampleReviews={this.state.reviews}/>
     )
   }
 

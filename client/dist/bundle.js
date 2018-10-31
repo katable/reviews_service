@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
   module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -577,7 +577,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(17);
+  var ReactPropTypesSecret = __webpack_require__(18);
   var loggedTypeFailures = {};
 }
 
@@ -876,7 +876,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(20);
+var isTextNode = __webpack_require__(21);
 
 /*eslint-disable no-bitwise */
 
@@ -940,15 +940,61 @@ module.exports = focusNode;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(18);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var User = function User(props) {
+  return _react2.default.createElement(
+    "div",
+    { className: "user" },
+    _react2.default.createElement(
+      "div",
+      { className: "user-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "username" },
+        props.username
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "location" },
+        _react2.default.createElement(
+          "span",
+          null,
+          props.city + "," + props.state
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null)
+      )
+    )
+  );
+};
+
+exports.default = User;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(19);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(27);
+var _App = __webpack_require__(28);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -957,7 +1003,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -985,7 +1031,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2350,7 +2396,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2369,7 +2415,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2407,15 +2453,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(23);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2651,7 +2697,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2666,7 +2712,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(21);
+var isNode = __webpack_require__(22);
 
 /**
  * @param {*} object The object to check.
@@ -2679,7 +2725,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2707,7 +2753,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2741,8 +2787,8 @@ var containsNode = __webpack_require__(12);
 var focusNode = __webpack_require__(13);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(23);
-var camelizeStyleName = __webpack_require__(25);
+var hyphenateStyleName = __webpack_require__(24);
+var camelizeStyleName = __webpack_require__(26);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18109,7 +18155,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18124,7 +18170,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(24);
+var hyphenate = __webpack_require__(25);
 
 var msPattern = /^ms-/;
 
@@ -18151,7 +18197,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18187,7 +18233,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18202,7 +18248,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(26);
+var camelize = __webpack_require__(27);
 
 var msPattern = /^-ms-/;
 
@@ -18230,7 +18276,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18265,7 +18311,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18281,11 +18327,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Reviews = __webpack_require__(28);
+var _Reviews = __webpack_require__(29);
 
 var _Reviews2 = _interopRequireDefault(_Reviews);
 
-var _NoReviews = __webpack_require__(29);
+var _NoReviews = __webpack_require__(30);
 
 var _NoReviews2 = _interopRequireDefault(_NoReviews);
 
@@ -18358,7 +18404,7 @@ var App = function (_React$Component) {
 exports.default = App;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18372,103 +18418,118 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _User = __webpack_require__(14);
+
+var _User2 = _interopRequireDefault(_User);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Reviews = function Reviews(props) {
   return _react2.default.createElement(
-    "div",
-    { className: "review" },
+    'div',
+    { className: 'review' },
     props.sampleReviews.map(function (sampleReview) {
       return _react2.default.createElement(
-        "div",
-        { className: "review-container" },
+        'div',
+        { className: 'review-container' },
         _react2.default.createElement(
-          "div",
-          { className: "review-time" },
-          _react2.default.createElement(
-            "span",
-            null,
-            "Dined on "
-          ),
-          _react2.default.createElement(
-            "span",
-            null,
-            sampleReview.review_time
-          )
+          'div',
+          { className: 'user-container' },
+          _react2.default.createElement(_User2.default, { username: sampleReview.username ? sampleReview.username : "anonymous",
+            city: sampleReview.city ? sampleReview.city : "",
+            state: sampleReview.state ? sampleReview.city : "" })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "ratings-container" },
+          'div',
+          { className: 'review-text-container' },
           _react2.default.createElement(
-            "span",
-            null,
-            "Overall "
-          ),
-          _react2.default.createElement(
-            "span",
-            { className: "rating" },
-            sampleReview.overall_rating
-          ),
-          _react2.default.createElement(
-            "span",
-            null,
-            " Food "
-          ),
-          _react2.default.createElement(
-            "span",
-            { className: "rating" },
-            sampleReview.food_rating
-          ),
-          _react2.default.createElement(
-            "span",
-            null,
-            " Service "
-          ),
-          _react2.default.createElement(
-            "span",
-            { className: "rating" },
-            sampleReview.service_rating
-          ),
-          _react2.default.createElement(
-            "span",
-            null,
-            " Ambience "
-          ),
-          _react2.default.createElement(
-            "span",
-            { className: "rating" },
-            sampleReview.ambience_rating
-          )
-        ),
-        _react2.default.createElement("br", null),
-        _react2.default.createElement(
-          "div",
-          { classname: "review-text" },
-          _react2.default.createElement(
-            "span",
-            null,
-            sampleReview.review_text
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "div",
-            { className: "icon-container" },
-            _react2.default.createElement("img", { src: "./flag.png" }),
+            'div',
+            { className: 'review-time' },
             _react2.default.createElement(
-              "span",
+              'span',
               null,
-              " Report "
+              'Dined on '
             ),
-            _react2.default.createElement("img", { src: "./helpful.png" }),
             _react2.default.createElement(
-              "span",
+              'span',
               null,
-              " Helpful "
+              sampleReview.review_time.slice(0, 15)
             )
-          )
-        ),
-        _react2.default.createElement("br", null)
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'ratings-container' },
+            _react2.default.createElement(
+              'span',
+              null,
+              'Overall '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              sampleReview.overall_rating
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Food '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              sampleReview.food_rating
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Service '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              sampleReview.service_rating
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Ambience '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              sampleReview.ambience_rating
+            )
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'div',
+            { className: 'review-text' },
+            _react2.default.createElement(
+              'span',
+              null,
+              sampleReview.review_text
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('br', null)
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'icon-container' },
+            _react2.default.createElement('img', { src: './flag.png' }),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Report '
+            ),
+            _react2.default.createElement('img', { src: './helpful.png' }),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Helpful '
+            )
+          ),
+          _react2.default.createElement('br', null)
+        )
       );
     })
   );
@@ -18477,7 +18538,7 @@ var Reviews = function Reviews(props) {
 exports.default = Reviews;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18511,7 +18572,9 @@ var NoReviews = function NoReviews(props) {
         _react2.default.createElement(
             "p",
             null,
-            "At present, this restaurant has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."
+            "At present, ",
+            props.sampleReviews.restaurantName,
+            " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."
         )
     );
 };

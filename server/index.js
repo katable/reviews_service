@@ -10,7 +10,7 @@ app.use(express.static('client/dist'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-//getAllReviews: select all reviews for the restaurant.
+// getAllReviews: select all reviews for the restaurant.
 app.get('/restaurant/:restaurant_id/reviews', (req, res) => {
   db.getAllReviews(req.params.restaurant_id, (err, results) => {
     if (err) {
@@ -46,7 +46,7 @@ app.get('/user/:user_id/reviews', (req, res) => {
   });
 });
 
-//post a review and have Joi to validate the review text so restaurant can avoid spam/overly short reviews and make sure that the star rating stays between 0 and 5
+//post a review and use Joi to validate the review text so restaurant can avoid spam/overly short reviews and make sure that the star rating stays between 0 and 5
 app.post('/reviews', (req, res) => {
   const schema = Joi.object().keys({
       review_text: Joi.string().min(10).max(700).required(), 
@@ -89,7 +89,7 @@ app.delete('/reviews/:review_id', (req, res) => {
 ////updates a review and uses Joi to validate the updated review so restaurant can avoid spam/overly short reviews and make sure that the star rating stays between 0 and 5
 app.patch('/reviews/:review_id', (req, res) => {
   const schema = Joi.object().keys({
-    updatedText: Joi.string().min(10).max(700).required(), 
+    updatedText: Joi.string().min(10).max(700).required(),
     newOverallRating: Joi.number().min(0).max(5).required(), 
     newFoodRating: Joi.number().min(0).max(5).required(), 
     newServiceRating: Joi.number().min(0).max(5).required(), 
