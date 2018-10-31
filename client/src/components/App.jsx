@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   fetchReviews() {
-    fetch('/restaurant/1/reviews')
+    fetch('/restaurant/4/reviews')
     .then((reviews) => {
       return reviews.json();
     })
@@ -35,7 +35,7 @@ class App extends React.Component {
 
   renderNoReviews() {
     return (
-      <NoReviews sampleReviews={this.state.reviews}/>
+      <NoReviews restaurantName={this.state.reviews}/> //change later
     )
   }
 

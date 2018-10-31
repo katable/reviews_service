@@ -1,11 +1,12 @@
 .review-container {
-  border: 1px solid black;
+  border: 1px solid #2d333f;
   padding: 10px;
   font-family: 'Josefin Sans', sans-serif;
+  color: #2d333f;
 }
 
 .rating {
-  color: red
+  color: #da3743;
 }
 
 .ratings-container {
@@ -16,6 +17,15 @@
   margin-left: 82%;
 }
 
+.review-container {
+  display: flex;
+}
+
+.user-container {
+  flex-grow: 1
+};
+
  .review-text-container {
    padding-right: 5px;
- }
+   flex-grow: 3;
+}

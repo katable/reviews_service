@@ -33,15 +33,12 @@ var insertIntoReview = function(restaurant_id, user_id, author, review_text, rev
 
 //get all reviews for a restaurant as well as user information for each review based on specified id
 const getAllReviews = function (restaurant_id, callback) {
-  const query = `select * from user inner join review on user.user_id=review.user_id`;
+  const query = `select * from user, review where user.user_id=review.user_id and review.restaurant_id=${restaurant_id}`;
   connection.query(query, [restaurant_id], (error, results) => {
     if (error) {
       callback(error, null);
     } else {
-      let filteredByRestaurantId = results.filter((result) => {
-        return result.restaurant_id = restaurant_id;
-      });
-      callback(null, filteredByRestaurantId);
+      callback(null, results);
     }
   });
 }

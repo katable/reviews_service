@@ -18321,7 +18321,7 @@ var App = function (_React$Component) {
     value: function fetchReviews() {
       var _this2 = this;
 
-      fetch('/restaurant/1/reviews').then(function (reviews) {
+      fetch('/restaurant/4/reviews').then(function (reviews) {
         return reviews.json();
       }).then(function (reviewsJSON) {
         _this2.setState({
@@ -18339,7 +18339,8 @@ var App = function (_React$Component) {
   }, {
     key: 'renderNoReviews',
     value: function renderNoReviews() {
-      return _react2.default.createElement(_NoReviews2.default, { sampleReviews: this.state.reviews });
+      return _react2.default.createElement(_NoReviews2.default, { restaurantName: this.state.reviews }) //change later
+      ;
     }
   }, {
     key: 'render',
@@ -18391,7 +18392,7 @@ var Reviews = function Reviews(props) {
           { className: 'user-container' },
           _react2.default.createElement(_User2.default, { username: sampleReview.username ? sampleReview.username : "anonymous",
             city: sampleReview.city ? sampleReview.city : "",
-            state: sampleReview.state ? sampleReview.city : "" })
+            state: sampleReview.state ? sampleReview.state : "" })
         ),
         _react2.default.createElement(
           'div',
@@ -18526,7 +18527,7 @@ var User = function User(props) {
         _react2.default.createElement(
           "span",
           null,
-          props.city + "," + props.state
+          props.city + ", " + props.state
         ),
         _react2.default.createElement("br", null),
         _react2.default.createElement("br", null)
@@ -18573,7 +18574,7 @@ var NoReviews = function NoReviews(props) {
             "p",
             null,
             "At present, ",
-            props.sampleReviews.restaurantName,
+            props.restaurantName,
             " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."
         )
     );

@@ -7,7 +7,7 @@ const User = (props) => (
           {props.username}
         </div>
         <div className="location">
-          <span>{`${props.city},${props.state}`}</span>
+          <span>{`${props.city}, ${props.state}`}</span>
           <br />
           <br />
         </div>
