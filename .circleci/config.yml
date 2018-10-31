@@ -35,4 +35,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+     - run:
+          name: Running ESLint with Airbnb Config
+          command: yarn lint
+      - run:
+          name: Running Jest tests
+          command: yarn jest
