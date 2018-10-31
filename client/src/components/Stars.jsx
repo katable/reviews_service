@@ -1,8 +1,8 @@
 import React from 'react';
 
 function countRatings (rating) {
-  let numStarsUnrated = 5 - rating
-  return numStarsUnrated
+  let numStarsUnrated = 5 - rating;
+  return numStarsUnrated;
 }
 
 const Stars = (props) => (
