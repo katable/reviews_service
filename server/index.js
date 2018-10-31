@@ -3,14 +3,14 @@ const Joi = require('joi');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-const db = require('../database/index.js');
+
 const port = process.env.port || 8080;
 
 app.use(express.static('client/dist'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-// getAllReviews: select all reviews for the restaurant.
+// getAllReviews: select all reviews for the restaurants
 app.get('/restaurant/:restaurant_id/reviews', (req, res) => {
   db.getAllReviews(req.params.restaurant_id, (err, results) => {
     if (err) {
