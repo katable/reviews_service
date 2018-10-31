@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
+      reviews: [], 
     }
   }
 
@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   fetchReviews() {
-    fetch('/restaurant/4/reviews')
+    fetch('/restaurant/6/reviews')
     .then((reviews) => {
       return reviews.json();
     })

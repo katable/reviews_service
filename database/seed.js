@@ -24,7 +24,7 @@ function seedData(){
         }
       });
     }
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
       let restaurant_id = Math.ceil(Math.random() * 100);
       let user_id = Math.ceil(Math.random() * 20);
       let review = faker.lorem.lines();

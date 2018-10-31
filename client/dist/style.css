@@ -14,18 +14,56 @@
 }
 
 .icon-container {
-  margin-left: 82%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review {
+  display: flex;
+  flex-flow: wrap;
+  /* justify-content: stretch; */
 }
 
 .review-container {
   display: flex;
+  padding-left: 20px;
+  width: 100%
 }
 
 .user-container {
-  flex-grow: 1
+  display: flex;
+  width: 150px;
+  flex-wrap: wrap;
+  margin-right: 20px;
 };
 
+
  .review-text-container {
-   padding-right: 5px;
-   flex-grow: 3;
+   margin-right: 5px;
+   margin-left: 5px;
+   display: flex;
+   flex-grow: 85%;
+   flex-wrap: wrap;
+}
+
+.location-font {
+  color: #6f737b;
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background: #333;
+  margin-left: 25px;
+}
+
+.name {
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 25px;
 }

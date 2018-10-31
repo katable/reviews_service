@@ -18321,7 +18321,7 @@ var App = function (_React$Component) {
     value: function fetchReviews() {
       var _this2 = this;
 
-      fetch('/restaurant/4/reviews').then(function (reviews) {
+      fetch('/restaurant/6/reviews').then(function (reviews) {
         return reviews.json();
       }).then(function (reviewsJSON) {
         _this2.setState({
@@ -18390,7 +18390,7 @@ var Reviews = function Reviews(props) {
         _react2.default.createElement(
           'div',
           { className: 'user-container' },
-          _react2.default.createElement(_User2.default, { username: sampleReview.username ? sampleReview.username : "anonymous",
+          _react2.default.createElement(_User2.default, { username: sampleReview.username ? sampleReview.username : "OpenTable Diner",
             city: sampleReview.city ? sampleReview.city : "",
             state: sampleReview.state ? sampleReview.state : "" })
         ),
@@ -18507,30 +18507,45 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _UserIcon = __webpack_require__(31);
+
+var _UserIcon2 = _interopRequireDefault(_UserIcon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var User = function User(props) {
   return _react2.default.createElement(
-    "div",
-    { className: "user" },
+    'div',
+    { className: 'user' },
     _react2.default.createElement(
-      "div",
-      { className: "user-container" },
+      'div',
+      { className: 'user-container' },
       _react2.default.createElement(
-        "div",
-        { className: "username" },
-        props.username
+        'div',
+        { className: 'pic-container' },
+        _react2.default.createElement(_UserIcon2.default, { name: props.username })
       ),
       _react2.default.createElement(
-        "div",
-        { className: "location" },
+        'div',
+        { className: 'user-text-container' },
         _react2.default.createElement(
-          "span",
-          null,
-          props.city + ", " + props.state
+          'div',
+          { className: 'username' },
+          _react2.default.createElement('br', null),
+          props.username
         ),
-        _react2.default.createElement("br", null),
-        _react2.default.createElement("br", null)
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'div',
+          { className: 'location' },
+          _react2.default.createElement(
+            'span',
+            { className: 'location-font' },
+            props.city + ', ' + props.state
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('br', null)
+        )
       )
     )
   );
@@ -18583,6 +18598,66 @@ var NoReviews = function NoReviews(props) {
 exports.default = NoReviews;
 
 //add restaurant name here? At present, restaurantName has no reviews.
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//splices out any non-string characters and gets the capitalized characters to display in icon
+function getInitials(name) {
+  var newName = name.replace(/[^A-Z]/g, '');
+  return newName.toUpperCase();
+}
+
+var UserIcon = function UserIcon(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'profile-icon' },
+    _react2.default.createElement(
+      'div',
+      { className: 'name' },
+      getInitials(props.name)
+    )
+  );
+};
+
+exports.default = UserIcon;
+
+// import React from 'react';
+
+// function getInitials(name) {
+//   let characters = name.split("");
+//   let str = "";
+//   for (let i = 0; i < characters.length; i++) {
+//         if (characters[i] === characters[i].toUpperCase()) {
+//           str += characters[i];
+//         }
+//       }
+//   return str;
+// }
+
+// const UserIcon = (props) => (
+//   <div className = "profile-icon">
+//     <div className = "name">
+//       {getInitials(props.name)}
+//     </div>
+//   </div>
+// )
+
+// export default UserIcon;
 
 /***/ })
 /******/ ]);

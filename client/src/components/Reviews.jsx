@@ -7,7 +7,7 @@ const Reviews = (props) => (
       return (
         <div className="review-container">
           <div className="user-container">
-            <User username={sampleReview.username ? sampleReview.username : "anonymous"} 
+            <User username={sampleReview.username ? sampleReview.username : "OpenTable Diner"} 
               city={sampleReview.city ? sampleReview.city : ""}
               state={sampleReview.state ? sampleReview.state : ""}/>
           </div>
