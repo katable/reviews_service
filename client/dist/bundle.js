@@ -18285,7 +18285,7 @@ var _Reviews = __webpack_require__(28);
 
 var _Reviews2 = _interopRequireDefault(_Reviews);
 
-var _NoReviews = __webpack_require__(32);
+var _NoReviews = __webpack_require__(33);
 
 var _NoReviews2 = _interopRequireDefault(_NoReviews);
 
@@ -18613,28 +18613,59 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Star = __webpack_require__(32);
+
+var _Star2 = _interopRequireDefault(_Star);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function countRatings(rating) {
-  var numStarsUnrated = 5 - rating;
-  return numStarsUnrated;
-}
+var createStars = function createStars(numStars) {
+  var uncoloredStars = 5 - numStars;
+  var stars = [];
+  for (var i = 0; i < numStars; i++) {
+    stars.push(_react2.default.createElement(_Star2.default, { colored: true }));
+  }
+  for (var _i = 0; _i < uncoloredStars; _i++) {
+    stars.push(_react2.default.createElement(_Star2.default, { colored: false }));
+  }
+  return stars;
+};
 
 var Stars = function Stars(props) {
   return _react2.default.createElement(
-    "div",
-    { className: "stars-component" },
-    countRatings(props.starRating)
+    'div',
+    { className: 'stars-component' },
+    createStars(props.starRating)
   );
 };
 
 exports.default = Stars;
 
-//ratings: 3
-//numStarsUnrated: 5-3 = 2
-
 /***/ }),
 /* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Star = function Star(props) {
+  return _react2.default.createElement('span', { className: props.colored ? 'fas fa-star colored' : 'fas fa-star uncolored' });
+};
+
+exports.default = Star;
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

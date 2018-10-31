@@ -57,7 +57,7 @@
   width: 60px;
   height: 60px;
   border-radius: 100px;
-  background: 
+  background: #6f737b;
   margin-left: 25px;
 }
 
@@ -66,4 +66,18 @@
   text-align: center;
   color: white;
   padding-top: 25px;
+}
+
+.colored {
+  color: #da3743;
+}
+
+.stars-component {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 5px;
+}
+
+.uncolored {
+  color: #6f737b;
 }
