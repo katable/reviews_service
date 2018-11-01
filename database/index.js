@@ -1,57 +1,9 @@
 const mysql = require('mysql');
-const faker = require('faker');
 
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'reviewsDb'
-});
-
-connection.connect(function(err) {
-  if (err) {
-    throw err; 
-  } else {
-    console.log("Connection made.");
-    //the moment the db connects, we start adding info into restaurants
-    for (let i = 0; i < 15; i++) {
-      let restaurantName = faker.company.companyName();
-      insertIntoRestaurant(restaurantName, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log(`${restaurantName} added successfully`);
-        }
-      });
-    }
-    for (let i = 0; i < 20; i++) {
-      let username = faker.internet.userName();
-      insertIntoUser(username, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log(`${username} added successfully`);
-        }
-      });
-    }
-    for (let i = 0; i < 3; i++) {
-      let restaurant_id = Math.ceil(Math.random() * 15);
-      let user_id = Math.ceil(Math.random() * 20);
-      let review = faker.lorem.lines();
-      let author = faker.internet.userName();
-      let date = faker.date.past();
-      let overall_rating = Math.floor(Math.random() * 6);
-      let food_rating = Math.floor(Math.random() * 6);
-      let service_rating = Math.floor(Math.random() * 6);
-      let ambience_rating = Math.floor(Math.random() * 6);
-      insertIntoReview(restaurant_id, user_id, author, review,  date, overall_rating, food_rating, service_rating, ambience_rating, (err, results) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log('Review added successfully.');
-        }
-      });
-    }
-  }
 });
 
 var insertIntoRestaurant = function(name, callback) {
@@ -61,16 +13,16 @@ var insertIntoRestaurant = function(name, callback) {
   });
 }
 
-var insertIntoUser = function(username, callback) {
-  var query = `INSERT INTO user (username) VALUES ("${username}")`;
-  connection.query(query, [username], (error, results, fields) => {
+var insertIntoUser = function(username, city, state, callback) {
+  var query = `insert into user (username, city, state) values ("${username}", "${city}", "${state}")`;
+  connection.query(query, [username, city, state], (error, results, fields) => {
     callback(error, null);
   });
 }
 
-var insertIntoReview = function(restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, callback) {
-  var query = `INSERT INTO review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating) VALUES (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating})`;
-  connection.query(query, [restaurant_id, user_id, review_text, author, review_time, overall_rating, food_rating, service_rating, ambience_rating], (error, results, fields) => {
+var insertIntoReview = function(restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName, callback) {
+  var query = `insert into review (restaurant_id, user_id, author, review_text, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName) values (${restaurant_id}, ${user_id}, "${author}","${review_text}", "${review_time}", ${overall_rating}, ${food_rating}, ${service_rating}, ${ambience_rating}, "${restaurantName}")`;
+  connection.query(query, [restaurant_id, user_id, review_text, author, review_time, overall_rating, food_rating, service_rating, ambience_rating, restaurantName], (error, results, fields) => {
     if (error) {
       callback(error, null);
     } else {
@@ -79,11 +31,11 @@ var insertIntoReview = function(restaurant_id, user_id, author, review_text, rev
   });
 }
 
-//getAllReviews: select all reviews for the restaurant.
-const getAllReviews = function(restaurant_id, callback) {
-  const query = `select * from review where restaurant_id=${restaurant_id}`; 
-  connection.query(query, (error, results, fields) => {
-    if (error) { 
+//get all reviews for a restaurant as well as user information for each review based on specified id
+const getAllReviews = function (restaurant_id, callback) {
+  const query = `select * from user, review where user.user_id=review.user_id and review.restaurant_id=${restaurant_id}`;
+  connection.query(query, [restaurant_id], (error, results) => {
+    if (error) {
       callback(error, null);
     } else {
       callback(null, results);
@@ -139,6 +91,10 @@ const patchReview = function(updatedText, newOverallRating, newFoodRating, newSe
   });
 }
 
+
+
+module.exports.insertIntoRestaurant = insertIntoRestaurant;
+module.exports.insertIntoUser = insertIntoUser;
 module.exports.getAllReviews = getAllReviews;
 module.exports.insertIntoReview = insertIntoReview;
 module.exports.getIndividualReview = getIndividualReview;

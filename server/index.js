@@ -1,5 +1,5 @@
 const express = require("express");
-const joi = require('joi');
+const Joi = require('joi');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,9 +10,8 @@ app.use(express.static('client/dist'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-//getAllReviews
+// getAllReviews: select all reviews for the restaurants
 app.get('/restaurant/:restaurant_id/reviews', (req, res) => {
-  // console.log('REQUEST', req)
   db.getAllReviews(req.params.restaurant_id, (err, results) => {
     if (err) {
       res.status(404).send("reviews not found");
@@ -22,10 +21,9 @@ app.get('/restaurant/:restaurant_id/reviews', (req, res) => {
   });
 });
 
-// getIndividualReview
+//getIndividualReview: select only that specific review 
 app.get('/reviews/:review_id', (req, res) => {
   db.getIndividualReview(req.params.review_id, (err, results) => {
-    // console.log("RESULTS", results)
     results.find((review) => {
       return review.review_id === req.params.review_id;
     });
@@ -37,10 +35,9 @@ app.get('/reviews/:review_id', (req, res) => {
   });
 });
 
-// //getAllReviewsFromUser
+//getAllReviewsFromUser: select all reviews by the specific user
 app.get('/user/:user_id/reviews', (req, res) => {
   db.getAllReviewsFromUser(req.params.user_id, (err, results) => {
-    console.log(req);
     if (err) {
       res.status(404).send("reviews not found"); 
     } else {
@@ -49,28 +46,36 @@ app.get('/user/:user_id/reviews', (req, res) => {
   });
 });
 
-// //postReview
+//post a review and use Joi to validate the review text so restaurant can avoid spam/overly short reviews and make sure that the star rating stays between 0 and 5
 app.post('/reviews', (req, res) => {
-  db.insertIntoReview(req.body.restaurant_id, req.body.user_id,req.body.author, req.body.review_text, req.body.review_time,req.body.overall_rating, req.body.food_rating, req.body.service_rating, req.body.ambience_rating, (err, results) => {
-    if (err) {
-      res.status(404).send("unable to post"); 
-    } else {
-      res.status(201).send("successfully posted");
-    }
+  const schema = Joi.object().keys({
+      review_text: Joi.string().min(10).max(700).required(), 
+      restaurant_id: Joi.number().required(), 
+      user_id: Joi.number().required(), 
+      author: Joi.string().min(5).max(50), 
+      review_time: Joi.string().max(50).required(), 
+      overall_rating: Joi.number().min(0).max(5).required(), 
+      food_rating: Joi.number().min(0).max(5).required(), 
+      service_rating: Joi.number().min(0).max(5).required(), 
+      ambience_rating: Joi.number().min(0).max(5).required(),
+      restaurantName: Joi.string().min(2).max(30)
+    });
+    Joi.validate(req.body, schema, (err, results) => {
+      if (err) {
+        res.status(404).send("unable to post: " + err);
+      } else {
+        db.insertIntoReview(req.body.restaurant_id, req.body.user_id, req.body.author, req.body.review_text, req.body.review_time, req.body.overall_rating, req.body.food_rating, req.body.service_rating, req.body.ambience_rating, restaurantName, (err, results) => {
+          if (err) {
+            res.status(404).send("unable to post");
+          } else {
+            res.status(201).send("successfully posted");
+          }
+        });
+      }
   });
 });
-// app.post('/restaurant/:restaurant_id/reviews', (req, res) => {
-//   db.postReview((error, results) => {
-//     const schema = {review: joi.string.min(10)};
-//     const result = joi.validate(req.body.schema);
-//   })
-//   if (error) {
-//     res.status(400).send(result.error.details[0].message);
-//   } else {
-//     res.status(201).send(reviews);
-//   }
-// });
 
+//deleteReview: delete a specific review
 app.delete('/reviews/:review_id', (req, res) => {
   db.deleteReview(req.params.review_id, (err, results) => {
     if (err) {
@@ -81,29 +86,28 @@ app.delete('/reviews/:review_id', (req, res) => {
   });
 });
 
-// //patchReview
+////updates a review and uses Joi to validate the updated review so restaurant can avoid spam/overly short reviews and make sure that the star rating stays between 0 and 5
 app.patch('/reviews/:review_id', (req, res) => {
-  db.patchReview(req.body.updatedText, req.body.newOverallRating, req.body.newFoodRating, req.body.newServiceRating, req.body.newAmbienceRating, req.params.review_id, (err, results) => {
+  const schema = Joi.object().keys({
+    updatedText: Joi.string().min(10).max(700).required(),
+    newOverallRating: Joi.number().min(0).max(5).required(), 
+    newFoodRating: Joi.number().min(0).max(5).required(), 
+    newServiceRating: Joi.number().min(0).max(5).required(), 
+    newAmbienceRating: Joi.number().min(0).max(5).required()
+  });
+  Joi.validate(req.body, schema, (err, results) => {
     if (err) {
-      res.status(404).send("review not found." + err);
+      res.status(404).send("unable to update: " + err);
     } else {
-      res.status(200).send("review successfully updated");
+      db.patchReview(req.body.updatedText, req.body.newOverallRating, req.body.newFoodRating, req.body.newServiceRating, req.body.newAmbienceRating, req.params.review_id, (err, results) => {
+        if (err) {
+          res.status(404).send("unable to update: " + err);
+        } else {
+          res.status(201).send("review successfully updated");
+        }
+      });
     }
   });
 });
-// app.patch('/resturant/:restaurant_id/reviews/:review_id', (req, res) => {
-//   db.patchReview((error, results) => {
-//     const reviewId = parseInt(req.body.review_id);
-//     const foundReview = reviews.find((review) => {
-//       return review.review_id === reviewId;
-//     });
-//     const schema = {review: joi.string().min(20).required()};
-//     if (error) {
-//       res.status(404).send("review not found");
-//     } else {
-//       res.status(200).send(foundReview);
-//     }
-//   });
-// });
 
 app.listen(port, () => {console.log(`Listening to port ${port}...`)});
