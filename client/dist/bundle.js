@@ -18289,6 +18289,10 @@ var _NoReviews = __webpack_require__(33);
 
 var _NoReviews2 = _interopRequireDefault(_NoReviews);
 
+var _Header = __webpack_require__(34);
+
+var _Header2 = _interopRequireDefault(_Header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18334,13 +18338,12 @@ var App = function (_React$Component) {
   }, {
     key: 'renderReviews',
     value: function renderReviews() {
-      return _react2.default.createElement(_Reviews2.default, { sampleReviews: this.state.reviews });
+      return _react2.default.createElement(_Reviews2.default, { reviews: this.state.reviews });
     }
   }, {
     key: 'renderNoReviews',
     value: function renderNoReviews() {
-      return _react2.default.createElement(_NoReviews2.default, { restaurantName: this.state.reviews }) //change later
-      ;
+      return _react2.default.createElement(_NoReviews2.default, { restaurantName: this.state.reviews });
     }
   }, {
     key: 'render',
@@ -18387,16 +18390,16 @@ var Reviews = function Reviews(props) {
   return _react2.default.createElement(
     'div',
     { className: 'review' },
-    props.sampleReviews.map(function (sampleReview) {
+    props.reviews.map(function (review) {
       return _react2.default.createElement(
         'div',
         { className: 'review-container' },
         _react2.default.createElement(
           'div',
           { className: 'user-container' },
-          _react2.default.createElement(_User2.default, { username: sampleReview.username ? sampleReview.username : "OpenTable Diner",
-            city: sampleReview.city ? sampleReview.city : "",
-            state: sampleReview.state ? sampleReview.state : "" })
+          _react2.default.createElement(_User2.default, { username: review.username ? review.username : "OpenTable Diner",
+            city: review.city ? review.city : "",
+            state: review.state ? review.state : "" })
         ),
         _react2.default.createElement(
           'div',
@@ -18404,7 +18407,7 @@ var Reviews = function Reviews(props) {
           _react2.default.createElement(
             'div',
             { className: 'star-container' },
-            _react2.default.createElement(_Stars2.default, { starRating: sampleReview.overall_rating })
+            _react2.default.createElement(_Stars2.default, { starRating: review.overall_rating })
           ),
           _react2.default.createElement(
             'div',
@@ -18417,7 +18420,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               null,
-              sampleReview.review_time.slice(0, 15)
+              review.review_time.slice(0, 15)
             )
           ),
           _react2.default.createElement(
@@ -18431,7 +18434,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               { className: 'rating' },
-              sampleReview.overall_rating
+              review.overall_rating
             ),
             _react2.default.createElement(
               'span',
@@ -18441,7 +18444,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               { className: 'rating' },
-              sampleReview.food_rating
+              review.food_rating
             ),
             _react2.default.createElement(
               'span',
@@ -18451,7 +18454,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               { className: 'rating' },
-              sampleReview.service_rating
+              review.service_rating
             ),
             _react2.default.createElement(
               'span',
@@ -18461,7 +18464,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               { className: 'rating' },
-              sampleReview.ambience_rating
+              review.ambience_rating
             )
           ),
           _react2.default.createElement('br', null),
@@ -18471,7 +18474,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               null,
-              sampleReview.review_text
+              review.review_text
             ),
             _react2.default.createElement('br', null),
             _react2.default.createElement('br', null)
@@ -18581,11 +18584,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function getInitials(name) {
   var newName = name.replace(/[^A-Z]/g, '');
+  if (newName.length === 0) {
+    return "OT";
+  }
   return newName.toUpperCase();
 }
 
-function loopColors() {
-  //inline style
+function randomizeColors() {
   var color = '#';
   var letters = '0123456789ABCDEF';
   for (var i = 0; i < 6; i++) {
@@ -18594,12 +18599,11 @@ function loopColors() {
   return color;
 }
 
-// document.getElementByClassName
-
 var UserIcon = function UserIcon(props) {
   return _react2.default.createElement(
     'div',
-    { className: 'profile-icon' },
+    { className: 'profile-icon',
+      style: { background: randomizeColors() } },
     _react2.default.createElement(
       'div',
       { className: 'name' },
@@ -18609,7 +18613,6 @@ var UserIcon = function UserIcon(props) {
 };
 
 exports.default = UserIcon;
-// export default loopColors;
 
 /***/ }),
 /* 31 */
@@ -18722,6 +18725,37 @@ var NoReviews = function NoReviews(props) {
 exports.default = NoReviews;
 
 //add restaurant name here? At present, restaurantName has no reviews.
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// import React from 'react';
+
+// // const Header = (props) => (
+// //   <div className="header-container">
+// //     <h1>What 260 People Are Saying</h1>
+// //     <p>Overall ratings and reviews</p>
+// //   </div>
+// // )
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       title: ""
+//     }
+//   }
+
+//   render(){
+
+//   }
+
+// }
+
+// export default Header;
+
 
 /***/ })
 /******/ ]);

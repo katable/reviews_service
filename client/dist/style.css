@@ -1,8 +1,21 @@
 .review-container {
-  border: 1px solid #2d333f;
+  border-bottom: 1px solid #2d333f;
   padding: 10px;
   font-family: 'Josefin Sans', sans-serif;
   color: #2d333f;
+  margin-top: 15px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.header-container {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 15px;
+  border-bottom: 1px solid #2d333f;
+  border-top: 1px solid #2d333f;
 }
 
 .rating {
@@ -30,6 +43,11 @@
   position: relative;
 }
 
+.username {
+  text-align: center
+  /* margin-left: 10%; */
+}
+
 .user-container {
   display: flex;
   width: 150px;
@@ -41,7 +59,6 @@
    margin-right: 5px;
    margin-left: 5px;
    display: flex;
-   /* flex-grow: 85%; */
    width:85%;
    flex-wrap: wrap;
 }
@@ -51,15 +68,15 @@
   font-size: 15px;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .profile-icon {
   width: 60px;
   height: 60px;
   border-radius: 100px;
-  background: #6f737b;
-  margin-left: 25px;
   margin-top: 5px;
+  margin-left: 45px;
 }
 
 .name {

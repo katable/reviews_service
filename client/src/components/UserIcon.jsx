@@ -2,10 +2,13 @@ import React from 'react';
 
 function getInitials (name) {
   let newName = name.replace(/[^A-Z]/g, '');
+  if (newName.length === 0) {
+    return "OT";
+  }
   return newName.toUpperCase();
 }
 
-function loopColors() { //inline style
+function randomizeColors() {
   let color = '#';
   let letters = '0123456789ABCDEF';
   for (let i = 0; i < 6; i++) {
@@ -14,10 +17,9 @@ function loopColors() { //inline style
   return color;
 }
 
-// document.getElementByClassName
-
 const UserIcon = (props) => (
-  <div className = "profile-icon">
+  <div className = "profile-icon" 
+  style={{background:randomizeColors()}}>
     <div className = "name">
       {getInitials(props.name)}
     </div>
@@ -25,4 +27,3 @@ const UserIcon = (props) => (
 )
 
 export default UserIcon;
-// export default loopColors;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Reviews from './Reviews.jsx';
 import NoReviews from './NoReviews.jsx';
+import Header from './Header.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,19 +30,20 @@ class App extends React.Component {
 
   renderReviews() {
     return (
-      <Reviews sampleReviews={this.state.reviews} />
+      <Reviews reviews={this.state.reviews} />
     )
   }
 
   renderNoReviews() {
     return (
-      <NoReviews restaurantName={this.state.reviews}/> //change later
+      <NoReviews restaurantName={this.state.reviews}/>
     )
   }
 
   render(){
     return (
       <div>
+       
         {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
       </div>
     )
