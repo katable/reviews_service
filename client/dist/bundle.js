@@ -18584,6 +18584,18 @@ function getInitials(name) {
   return newName.toUpperCase();
 }
 
+function loopColors() {
+  //inline style
+  var color = '#';
+  var letters = '0123456789ABCDEF';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// document.getElementByClassName
+
 var UserIcon = function UserIcon(props) {
   return _react2.default.createElement(
     'div',
@@ -18597,6 +18609,7 @@ var UserIcon = function UserIcon(props) {
 };
 
 exports.default = UserIcon;
+// export default loopColors;
 
 /***/ }),
 /* 31 */
@@ -18659,7 +18672,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Star = function Star(props) {
-  return _react2.default.createElement('span', { className: props.colored ? 'fas fa-star colored' : 'fas fa-star uncolored' });
+  return _react2.default.createElement('i', { className: props.colored ? 'fas fa-star colored' : 'fas fa-star uncolored' });
 };
 
 exports.default = Star;

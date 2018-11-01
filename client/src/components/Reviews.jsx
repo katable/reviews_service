@@ -13,9 +13,9 @@ const Reviews = (props) => (
               state={sampleReview.state ? sampleReview.state : ""}/>
           </div>
           <div className="review-text-container">
-          <div className="star-container">
-            <Stars starRating={sampleReview.overall_rating} /> 
-         </div>
+            <div className="star-container">
+              <Stars starRating={sampleReview.overall_rating} /> 
+            </div>
             <div className="review-time">
               <span>Dined on </span>
               <span>{sampleReview.review_time.slice(0,15)}</span>
@@ -36,12 +36,12 @@ const Reviews = (props) => (
               <br />
               <br />
             </div>
-              <div className="icon-container">
-                <img src= './flag.png' />
-                <span> Report </span>
-                <img src='./helpful.png' />
-                <span> Helpful </span>
-              </div>
+            <div className="icon-container">
+              <img src= './flag.png' />
+              <span> Report </span>
+              <img src='./helpful.png' />
+              <span> Helpful </span>
+            </div>
             <br />
           </div>
         </div>

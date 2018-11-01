@@ -5,6 +5,17 @@ function getInitials (name) {
   return newName.toUpperCase();
 }
 
+function loopColors() { //inline style
+  let color = '#';
+  let letters = '0123456789ABCDEF';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// document.getElementByClassName
+
 const UserIcon = (props) => (
   <div className = "profile-icon">
     <div className = "name">
@@ -14,3 +25,4 @@ const UserIcon = (props) => (
 )
 
 export default UserIcon;
+// export default loopColors;

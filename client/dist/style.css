@@ -21,13 +21,13 @@
 .review {
   display: flex;
   flex-flow: wrap;
-  /* justify-content: stretch; */
 }
 
 .review-container {
   display: flex;
   padding-left: 20px;
-  width: 100%
+  width: 100%;
+  position: relative;
 }
 
 .user-container {
@@ -37,12 +37,12 @@
   margin-right: 20px;
 };
 
-
- .review-text-container {
+.review-text-container {
    margin-right: 5px;
    margin-left: 5px;
    display: flex;
-   flex-grow: 85%;
+   /* flex-grow: 85%; */
+   width:85%;
    flex-wrap: wrap;
 }
 
@@ -59,6 +59,7 @@
   border-radius: 100px;
   background: #6f737b;
   margin-left: 25px;
+  margin-top: 5px;
 }
 
 .name {
@@ -75,9 +76,16 @@
 .stars-component {
   display: flex;
   flex-direction: row;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .uncolored {
   color: #6f737b;
+}
+
+.icon-container {
+  display: block;
+  position: absolute;
+  bottom: 11px;
+  right: 16px;
 }
