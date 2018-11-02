@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,9 +71,9 @@
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
   module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -577,7 +577,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(17);
+  var ReactPropTypesSecret = __webpack_require__(18);
   var loggedTypeFailures = {};
 }
 
@@ -876,7 +876,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(20);
+var isTextNode = __webpack_require__(21);
 
 /*eslint-disable no-bitwise */
 
@@ -935,29 +935,60 @@ module.exports = focusNode;
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Star_jsx__ = __webpack_require__(32);
 
 
-var _react = __webpack_require__(0);
 
-var _react2 = _interopRequireDefault(_react);
+var createStars = function createStars(numStars) {
+  var uncoloredStars = 5 - numStars;
+  var stars = [];
 
-var _reactDom = __webpack_require__(18);
+  for (var i = 0; i < numStars; i++) {
+    stars.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Star_jsx__["a" /* default */], {
+      colored: true
+    }));
+  }
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+  for (var _i = 0; _i < uncoloredStars; _i++) {
+    stars.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Star_jsx__["a" /* default */], {
+      colored: false
+    }));
+  }
 
-var _App = __webpack_require__(27);
+  return stars;
+};
 
-var _App2 = _interopRequireDefault(_App);
+var Stars = function Stars(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "stars-component"
+  }, createStars(props.starRating));
+};
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
+/* harmony default export */ __webpack_exports__["a"] = (Stars);
 
 /***/ }),
 /* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App_jsx__ = __webpack_require__(28);
+
+
+
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_App_jsx__["a" /* default */], null), document.getElementById('app'));
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -985,7 +1016,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2350,7 +2381,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2369,7 +2400,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2407,15 +2438,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(23);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2651,7 +2682,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2666,7 +2697,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(21);
+var isNode = __webpack_require__(22);
 
 /**
  * @param {*} object The object to check.
@@ -2679,7 +2710,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2707,7 +2738,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2741,8 +2772,8 @@ var containsNode = __webpack_require__(12);
 var focusNode = __webpack_require__(13);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(23);
-var camelizeStyleName = __webpack_require__(25);
+var hyphenateStyleName = __webpack_require__(24);
+var camelizeStyleName = __webpack_require__(26);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18109,7 +18140,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18124,7 +18155,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(24);
+var hyphenate = __webpack_require__(25);
 
 var msPattern = /^ms-/;
 
@@ -18151,7 +18182,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18187,7 +18218,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18202,7 +18233,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(26);
+var camelize = __webpack_require__(27);
 
 var msPattern = /^-ms-/;
 
@@ -18230,7 +18261,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18265,50 +18296,52 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Reviews = __webpack_require__(28);
-
-var _Reviews2 = _interopRequireDefault(_Reviews);
-
-var _NoReviews = __webpack_require__(33);
-
-var _NoReviews2 = _interopRequireDefault(_NoReviews);
-
-var _Header = __webpack_require__(34);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var App = function (_React$Component) {
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var App =
+/*#__PURE__*/
+function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
+    var _this;
+
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
       reviews: []
     };
@@ -18316,12 +18349,12 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       this.fetchReviews();
     }
   }, {
-    key: 'fetchReviews',
+    key: "fetchReviews",
     value: function fetchReviews() {
       var _this2 = this;
 
@@ -18336,420 +18369,215 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'renderReviews',
+    key: "renderReviews",
     value: function renderReviews() {
-      return _react2.default.createElement(_Reviews2.default, { reviews: this.state.reviews });
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__["a" /* default */], {
+        reviews: this.state.reviews
+      });
     }
   }, {
-    key: 'renderNoReviews',
+    key: "renderNoReviews",
     value: function renderNoReviews() {
-      return _react2.default.createElement(_NoReviews2.default, { restaurantName: this.state.reviews });
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__["a" /* default */], {
+        restaurantName: this.state.reviews
+      });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_Header2.default, { reviewsCount: this.state.reviews.length, restaurantInfo: this.state.reviews }),
-        this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()
-      );
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header_jsx__["a" /* default */], {
+        reviewsCount: this.state.reviews.length,
+        restaurantInfo: this.state.reviews
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
     }
   }]);
 
   return App;
-}(_react2.default.Component);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-exports.default = App;
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _User = __webpack_require__(29);
-
-var _User2 = _interopRequireDefault(_User);
-
-var _Stars = __webpack_require__(31);
-
-var _Stars2 = _interopRequireDefault(_Stars);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Reviews = function Reviews(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'review' },
-    props.reviews.map(function (review) {
-      return _react2.default.createElement(
-        'div',
-        { className: 'review-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'user-container' },
-          _react2.default.createElement(_User2.default, { username: review.username ? review.username : "OpenTable Diner",
-            city: review.city ? review.city : "",
-            state: review.state ? review.state : "" })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'review-text-container' },
-          _react2.default.createElement(
-            'div',
-            { className: 'star-container' },
-            _react2.default.createElement(_Stars2.default, { starRating: review.overall_rating })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'review-time' },
-            _react2.default.createElement(
-              'span',
-              null,
-              '\xA0Dined on '
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              review.review_time.slice(0, 15)
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'ratings-container' },
-            _react2.default.createElement(
-              'span',
-              null,
-              '\xA0Overall '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              review.overall_rating
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Food '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              review.food_rating
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Service '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              review.service_rating
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Ambience '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              review.ambience_rating
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'div',
-            { className: 'review-text' },
-            _react2.default.createElement(
-              'span',
-              null,
-              review.review_text
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'icon-container' },
-            _react2.default.createElement('img', { src: './flag.png' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Report '
-            ),
-            _react2.default.createElement('img', { src: './helpful.png' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Helpful '
-            )
-          ),
-          _react2.default.createElement('br', null)
-        )
-      );
-    })
-  );
-};
-
-exports.default = Reviews;
+/* harmony default export */ __webpack_exports__["a"] = (App);
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__User_jsx__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Stars_jsx__ = __webpack_require__(14);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _react = __webpack_require__(0);
 
-var _react2 = _interopRequireDefault(_react);
-
-var _UserIcon = __webpack_require__(30);
-
-var _UserIcon2 = _interopRequireDefault(_UserIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var User = function User(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'user' },
-    _react2.default.createElement(
-      'div',
-      { className: 'user-container' },
-      _react2.default.createElement(
-        'div',
-        { className: 'pic-container' },
-        _react2.default.createElement(_UserIcon2.default, { name: props.username })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'user-text-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'username' },
-          _react2.default.createElement('br', null),
-          props.username
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'div',
-          { className: 'location' },
-          _react2.default.createElement(
-            'span',
-            { className: 'location-font' },
-            props.city + ', ' + props.state
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement('br', null)
-        )
-      )
-    )
-  );
+var Reviews = function Reviews(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "review"
+  }, props.reviews.map(function (review) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "review-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "user-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__User_jsx__["a" /* default */], {
+      username: review.username ? review.username : "OpenTable Diner",
+      city: review.city ? review.city : "",
+      state: review.state ? review.state : ""
+    })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "review-content-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "review-heading-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "star-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Stars_jsx__["a" /* default */], {
+      starRating: review.overall_rating
+    })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "review-time"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\xA0Dined on "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, review.review_time.slice(0, 15))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "ratings-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\xA0Overall "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+      className: "rating"
+    }, review.overall_rating), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Food "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+      className: "rating"
+    }, review.food_rating), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Service "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+      className: "rating"
+    }, review.service_rating), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Ambience "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+      className: "rating"
+    }, review.ambience_rating)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "review-text"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, review.review_text)))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "icon-container"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+      src: "./flag.png"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Report "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+      src: "./helpful.png"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Helpful ")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null));
+  }));
 };
 
-exports.default = User;
+/* harmony default export */ __webpack_exports__["a"] = (Reviews);
 
 /***/ }),
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserIcon_jsx__ = __webpack_require__(31);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _react = __webpack_require__(0);
+var User = function User(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "user"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "user-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "pic-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UserIcon_jsx__["a" /* default */], {
+    name: props.username
+  })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "user-text-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "username"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), props.username), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "location"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "location-font"
+  }, "".concat(props.city, ", ").concat(props.state)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null)))));
+};
 
-var _react2 = _interopRequireDefault(_react);
+/* harmony default export */ __webpack_exports__["a"] = (User);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
 
 function getInitials(name) {
   var newName = name.replace(/[^A-Z]/g, '');
+
   if (newName.length === 0) {
     return "OT";
   }
+
   return newName.toUpperCase();
 }
 
 function randomizeColors() {
   var color = '#';
   var letters = '0123456789ABCDEF';
+
   for (var i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
+
   return color;
 }
 
 var UserIcon = function UserIcon(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'profile-icon',
-      style: { background: randomizeColors() } },
-    _react2.default.createElement(
-      'div',
-      { className: 'name' },
-      getInitials(props.name)
-    )
-  );
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "profile-icon",
+    style: {
+      background: randomizeColors()
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "name"
+  }, getInitials(props.name)));
 };
 
-exports.default = UserIcon;
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Star = __webpack_require__(32);
-
-var _Star2 = _interopRequireDefault(_Star);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var createStars = function createStars(numStars) {
-  var uncoloredStars = 5 - numStars;
-  var stars = [];
-  for (var i = 0; i < numStars; i++) {
-    stars.push(_react2.default.createElement(_Star2.default, { colored: true }));
-  }
-  for (var _i = 0; _i < uncoloredStars; _i++) {
-    stars.push(_react2.default.createElement(_Star2.default, { colored: false }));
-  }
-  return stars;
-};
-
-var Stars = function Stars(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'stars-component' },
-    createStars(props.starRating)
-  );
-};
-
-exports.default = Stars;
+/* harmony default export */ __webpack_exports__["a"] = (UserIcon);
 
 /***/ }),
 /* 32 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Star = function Star(props) {
-  return _react2.default.createElement('i', { className: props.colored ? 'fas fa-star colored' : 'fas fa-star uncolored' });
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+    className: props.colored ? 'fas fa-star colored' : 'fas fa-star uncolored'
+  });
 };
 
-exports.default = Star;
+/* harmony default export */ __webpack_exports__["a"] = (Star);
 
 /***/ }),
 /* 33 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NoReviews = function NoReviews(props) {
-    return _react2.default.createElement(
-        "div",
-        { className: "no-reviews-container" },
-        _react2.default.createElement(
-            "h1",
-            null,
-            "Be The First to Review This Restaurant"
-        ),
-        _react2.default.createElement(
-            "p",
-            null,
-            "Write a review"
-        ),
-        _react2.default.createElement("br", null),
-        _react2.default.createElement(
-            "p",
-            null,
-            "At present, ",
-            props.restaurantName,
-            " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."
-        )
-    );
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "no-reviews-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "Be The First to Review This Restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Write a review"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "At present, ", props.restaurantName, " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."));
 };
 
-exports.default = NoReviews;
-
-//add restaurant name here? At present, restaurantName has no reviews.
+/* harmony default export */ __webpack_exports__["a"] = (NoReviews); //add restaurant name here? At present, restaurantName has no reviews.
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Stars_jsx__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__ = __webpack_require__(35);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Stars = __webpack_require__(31);
-
-var _Stars2 = _interopRequireDefault(_Stars);
-
-var _BarGraph = __webpack_require__(35);
-
-var _BarGraph2 = _interopRequireDefault(_BarGraph);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var findOverallRatingOfRestaurant = function findOverallRatingOfRestaurant(list) {
   var sum = 0;
@@ -18799,165 +18627,66 @@ var wouldRecommend = function wouldRecommend(list, listLength) {
 
 var Header = function Header(props) {
   var averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
-  return _react2.default.createElement(
-    'div',
-    { className: 'top-container' },
-    _react2.default.createElement(
-      'div',
-      { className: 'header-container' },
-      _react2.default.createElement(
-        'div',
-        { className: 'header-top-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'header-info' },
-          _react2.default.createElement(
-            'h1',
-            null,
-            'What ',
-            props.reviewsCount,
-            ' People Are Saying'
-          ),
-          _react2.default.createElement(
-            'p',
-            { className: 'emphasize' },
-            'Overall ratings and reviews'
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Reviews can only be made by diners who have eaten at this restaurant'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'average-container' },
-            _react2.default.createElement(
-              'div',
-              { className: 'avg-rating-block' },
-              _react2.default.createElement(_Stars2.default, { starRating: averageRating })
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              averageRating,
-              ' stars based on recent ratings'
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'div',
-            { className: 'average-block' },
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              '\xA0',
-              findFoodRatingOfRestaurant(props.restaurantInfo)
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Food '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              '\xA0',
-              findServiceRatingOfRestaurant(props.restaurantInfo)
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Service '
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'rating' },
-              '\xA0',
-              findAmbienceRatingOfRestaurant(props.restaurantInfo)
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Ambience '
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'div',
-            { className: 'header-icon-container' },
-            _react2.default.createElement('img', { src: './noise.png' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              ' Noise - Moderate '
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement('img', { src: './like.png' }),
-            _react2.default.createElement(
-              'span',
-              null,
-              '\xA0',
-              wouldRecommend(props.restaurantInfo, props.reviewsCount),
-              '% of people would recommend it to a friend '
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'bargraph-container' },
-          _react2.default.createElement(_BarGraph2.default, { ratingsInfo: props.restaurantInfo })
-        )
-      ),
-      _react2.default.createElement('br', null),
-      _react2.default.createElement(
-        'div',
-        { className: 'LovedFor' },
-        _react2.default.createElement(
-          'span',
-          { className: 'emphasize' },
-          'Loved For '
-        ),
-        _react2.default.createElement('img', { src: './info.png' }),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'div',
-          { className: 'award' },
-          _react2.default.createElement('img', { className: 'award-text', src: './trophy.png' }),
-          _react2.default.createElement(
-            'span',
-            { className: 'award-text' },
-            '\xA0Most Booked 1000-Point Tables'
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            props.restaurantInfo.restaurantName
-          )
-        )
-      )
-    )
-  );
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "top-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "header-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "header-top-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "header-info"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "What ", props.reviewsCount, " People Are Saying"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+    className: "emphasize"
+  }, "Overall ratings and reviews"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Reviews can only be made by diners who have eaten at this restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "average-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "avg-rating-block"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Stars_jsx__["a" /* default */], {
+    starRating: averageRating
+  })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, averageRating, " stars based on recent ratings")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "average-block"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "rating"
+  }, "\xA0", findFoodRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Food "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "rating"
+  }, "\xA0", findServiceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Service "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "rating"
+  }, "\xA0", findAmbienceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Ambience ")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "header-icon-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./noise.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Noise - Moderate "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./like.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\xA0", wouldRecommend(props.restaurantInfo, props.reviewsCount), "% of people would recommend it to a friend "))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bargraph-container"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__["a" /* default */], {
+    ratingsInfo: props.restaurantInfo
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "LovedFor"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "emphasize"
+  }, "Loved For "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./info.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "award"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    className: "award-text",
+    src: "./trophy.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "award-text"
+  }, "\xA0Most Booked 1000-Point Tables"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, props.restaurantInfo.restaurantName)))));
 };
 
-exports.default = Header;
+/* harmony default export */ __webpack_exports__["a"] = (Header);
 
 /***/ }),
 /* 35 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var countRating5 = function countRating5(list) {
   var sum = 0;
@@ -19015,85 +18744,89 @@ var BarGraph = function BarGraph(props) {
   var lengthOf3 = countRating3(props.ratingsInfo);
   var lengthOf2 = countRating2(props.ratingsInfo);
   var lengthOf1 = countRating1(props.ratingsInfo);
-  var outOfPercentage = props.ratingsInfo.length;
-  //
-  return _react2.default.createElement(
-    "div",
-    { className: "bargraph" },
-    _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement(
-        "span",
-        { className: "bar-number" },
-        "5"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "bar-line" },
-        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf5 / outOfPercentage * 300 + "px" } })
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement(
-        "span",
-        { className: "bar-number" },
-        "4"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "bar-line" },
-        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf4 / outOfPercentage * 300 + "px" } })
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement(
-        "span",
-        { className: "bar-number" },
-        "3"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "bar-line" },
-        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf3 / outOfPercentage * 300 + "px" } })
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement(
-        "span",
-        { className: "bar-number" },
-        "2"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "bar-line" },
-        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf2 / outOfPercentage * 300 + "px" } })
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement(
-        "span",
-        { className: "bar-number" },
-        "1"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "bar-line" },
-        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf1 / outOfPercentage * 300 + "px" } })
-      )
-    )
-  );
+  var outOfPercentage = props.ratingsInfo.length; //
+
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bargraph"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "bar-number"
+  }, "5"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line-red",
+    style: {
+      width: lengthOf5 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "bar-number"
+  }, "4"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line-red",
+    style: {
+      width: lengthOf4 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "bar-number"
+  }, "3"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line-red",
+    style: {
+      width: lengthOf3 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "bar-number"
+  }, "2"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line-red",
+    style: {
+      width: lengthOf2 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "bar-number"
+  }, "1"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "bar-line-red",
+    style: {
+      width: lengthOf1 / outOfPercentage * 300 + "px"
+    }
+  }))));
 };
 
-exports.default = BarGraph;
+/* harmony default export */ __webpack_exports__["a"] = (BarGraph);
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+// import React from 'react';
+// class DropdownMenu extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       selection: [
+//         {id: 0,
+//          title: 'Newest',
+//          selected: true
+//         },
+//         {id: 1,
+//         title: 'Highest Rating',
+//         selected: false
+//         },
+//         {id: 2,
+//         title: 'Lowest Rating',
+//         selected: false
+//         } 
+//       ]
+//     }
+//   }
+//   render() {
+//   }
+// }
+// export default DropdownMenu;
 
 /***/ })
 /******/ ]);

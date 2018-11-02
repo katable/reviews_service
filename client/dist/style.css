@@ -2,24 +2,43 @@
 
 .review-container {
   border-bottom: 1px solid #2d333f;
-  padding: 10px;
+  /* padding: 10px; */
   font-family: 'Josefin Sans', sans-serif;
   color: #2d333f;
-  margin-top: 2%;
+  /* margin-top: 4%;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10%; */
+  width: 80%;
+  height: auto;
+  /* position: relative; */
   display: flex;
-  width: 100%;;
-  position: relative;
+  /* flex-direction: column; */
+  align-items: flex-end;
 }
 
-.review-text-container {
-  margin-right: 2%;
-  margin-left: 2%;
-  display: flex;
-  width: 85%;
-  flex-wrap: wrap;
+.review-time {
+  margin-top: -2%
 }
+
+.review-heading-container {
+  /* margin-right: 2%;
+  margin-left: 20%; */
+  /* position: relative; */
+  /* width: 85%; */
+  /* margin-top: -18%;
+  padding-top: -100% */
+  /* flex-wrap: wrap; */
+}
+
+/*abc*/
+.review-content-container {
+  flex: 4;
+}
+
+.review-text {
+  /* margin-left: 20%; */
+  width: 85%
+} 
 
 .ratings-container {
   font-weight: bold
@@ -30,25 +49,23 @@
 }
 
 .review {
-  display: flex;
-  flex-flow: wrap;
+  /* display: flex; */
+  /* flex-flow: wrap; */
 }
 
 .icon-container {
-  display: block;
-  position: absolute;
-  bottom: 11px;
-  right: 16px;
+  display: inline-block;
+  position: relative;
 }
 
 /*CSS for username component*/
 
 .user-container {
   display: flex;
-  width: 150px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex: 1;
   margin-right: 20px;
-  text-align: center;
+  flex-direction: column;
 };
 
 .username {
@@ -184,4 +201,10 @@
 
 .emphasize {
   font-weight: bold;
+}
+
+/*Sorting CSS*/
+.sorting-text{
+  font-family: 'Josefin Sans', sans-serif;
+  margin-left: 10%
 }

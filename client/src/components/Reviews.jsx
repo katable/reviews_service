@@ -12,37 +12,37 @@ const Reviews = (props) => (
               city={review.city ? review.city : ""}
               state={review.state ? review.state : ""}/>
           </div>
-          <div className="review-text-container">
-            <div className="star-container">
-              <Stars starRating={review.overall_rating} /> 
+          <div className="review-content-container">
+            <div className="review-heading-container">
+              <div className="star-container">
+                <Stars starRating={review.overall_rating} /> 
+              </div>
+              <div className="review-time">
+                <span>&nbsp;Dined on </span>
+                <span>{review.review_time.slice(0,15)}</span>
+              </div>
+              <div className="ratings-container">
+                <span>&nbsp;Overall </span>
+                <span className="rating">{review.overall_rating}</span>
+                <span> Food </span>
+                <span className="rating">{review.food_rating}</span>
+                <span> Service </span>
+                <span className="rating">{review.service_rating}</span>
+                <span> Ambience </span>
+                <span className="rating">{review.ambience_rating}</span>
+              </div>
+              <div className="review-text">
+                <p>{review.review_text}</p>
+              </div>
             </div>
-            <div className="review-time">
-              <span>&nbsp;Dined on </span>
-              <span>{review.review_time.slice(0,15)}</span>
-            </div>
-            <div className="ratings-container">
-              <span>&nbsp;Overall </span>
-              <span className="rating">{review.overall_rating}</span>
-              <span> Food </span>
-              <span className="rating">{review.food_rating}</span>
-              <span> Service </span>
-              <span className="rating">{review.service_rating}</span>
-              <span> Ambience </span>
-              <span className="rating">{review.ambience_rating}</span>
-            </div>
-            <br />
-            <br />
-            <div className="review-text">
-              <span>{review.review_text}</span>
-            </div>
-            <div className="icon-container">
-              <img src= './flag.png' />
-              <span> Report </span>
-              <img src='./helpful.png' />
-              <span> Helpful </span>
-            </div>
-            <br />
           </div>
+          <div className="icon-container">
+            <img src= './flag.png' />
+            <span> Report </span>
+            <img src='./helpful.png' />
+            <span> Helpful </span>
+          </div>
+          <br />
         </div>
       )
     })}

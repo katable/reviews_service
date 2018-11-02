@@ -2,6 +2,7 @@ import React from 'react';
 import Reviews from './Reviews.jsx';
 import NoReviews from './NoReviews.jsx';
 import Header from './Header.jsx';
+import DropdownMenu from './DropdownMenu.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,8 +44,13 @@ class App extends React.Component {
   render(){ 
     return (
       <div>
-       <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
-        {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
+        <div>
+          <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
+        </div>
+  
+        <div>
+            {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
+        </div>
       </div>
     )
   }
