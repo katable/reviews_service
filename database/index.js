@@ -91,8 +91,6 @@ const patchReview = function(updatedText, newOverallRating, newFoodRating, newSe
   });
 }
 
-
-
 module.exports.insertIntoRestaurant = insertIntoRestaurant;
 module.exports.insertIntoUser = insertIntoUser;
 module.exports.getAllReviews = getAllReviews;

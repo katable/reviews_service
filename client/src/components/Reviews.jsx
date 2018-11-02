@@ -17,11 +17,11 @@ const Reviews = (props) => (
               <Stars starRating={review.overall_rating} /> 
             </div>
             <div className="review-time">
-              <span>Dined on </span>
+              <span>&nbsp;Dined on </span>
               <span>{review.review_time.slice(0,15)}</span>
             </div>
             <div className="ratings-container">
-              <span>Overall </span>
+              <span>&nbsp;Overall </span>
               <span className="rating">{review.overall_rating}</span>
               <span> Food </span>
               <span className="rating">{review.food_rating}</span>
@@ -31,10 +31,9 @@ const Reviews = (props) => (
               <span className="rating">{review.ambience_rating}</span>
             </div>
             <br />
+            <br />
             <div className="review-text">
               <span>{review.review_text}</span>
-              <br />
-              <br />
             </div>
             <div className="icon-container">
               <img src= './flag.png' />

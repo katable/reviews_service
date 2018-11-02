@@ -24,6 +24,6 @@ const UserIcon = (props) => (
       {getInitials(props.name)}
     </div>
   </div>
-)
+);
 
 export default UserIcon;

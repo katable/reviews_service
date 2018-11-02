@@ -18325,7 +18325,7 @@ var App = function (_React$Component) {
     value: function fetchReviews() {
       var _this2 = this;
 
-      fetch('/restaurant/6/reviews').then(function (reviews) {
+      fetch('/restaurant/2/reviews').then(function (reviews) {
         return reviews.json();
       }).then(function (reviewsJSON) {
         _this2.setState({
@@ -18351,6 +18351,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_Header2.default, { reviewsCount: this.state.reviews.length, restaurantInfo: this.state.reviews }),
         this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()
       );
     }
@@ -18415,7 +18416,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               null,
-              'Dined on '
+              '\xA0Dined on '
             ),
             _react2.default.createElement(
               'span',
@@ -18429,7 +18430,7 @@ var Reviews = function Reviews(props) {
             _react2.default.createElement(
               'span',
               null,
-              'Overall '
+              '\xA0Overall '
             ),
             _react2.default.createElement(
               'span',
@@ -18468,6 +18469,7 @@ var Reviews = function Reviews(props) {
             )
           ),
           _react2.default.createElement('br', null),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'div',
             { className: 'review-text' },
@@ -18475,9 +18477,7 @@ var Reviews = function Reviews(props) {
               'span',
               null,
               review.review_text
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement('br', null)
+            )
           ),
           _react2.default.createElement(
             'div',
@@ -18731,31 +18731,361 @@ exports.default = NoReviews;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// import React from 'react';
 
-// // const Header = (props) => (
-// //   <div className="header-container">
-// //     <h1>What 260 People Are Saying</h1>
-// //     <p>Overall ratings and reviews</p>
-// //   </div>
-// // )
 
-// class Header extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       title: ""
-//     }
-//   }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-//   render(){
+var _react = __webpack_require__(0);
 
-//   }
+var _react2 = _interopRequireDefault(_react);
 
-// }
+var _Stars = __webpack_require__(31);
 
-// export default Header;
+var _Stars2 = _interopRequireDefault(_Stars);
 
+var _BarGraph = __webpack_require__(35);
+
+var _BarGraph2 = _interopRequireDefault(_BarGraph);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var findOverallRatingOfRestaurant = function findOverallRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.overall_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findFoodRatingOfRestaurant = function findFoodRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.food_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findServiceRatingOfRestaurant = function findServiceRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.service_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findAmbienceRatingOfRestaurant = function findAmbienceRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.ambience_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var wouldRecommend = function wouldRecommend(list, listLength) {
+  var arr = [];
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating >= 3) {
+      arr.push(1);
+    }
+  });
+  arr.forEach(function (count) {
+    sum += count;
+  });
+  return Math.ceil(sum / listLength * 100);
+};
+
+var Header = function Header(props) {
+  var averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
+  return _react2.default.createElement(
+    'div',
+    { className: 'top-container' },
+    _react2.default.createElement(
+      'div',
+      { className: 'header-container' },
+      _react2.default.createElement(
+        'h1',
+        null,
+        'What ',
+        props.reviewsCount,
+        ' People Are Saying'
+      ),
+      _react2.default.createElement(
+        'p',
+        { className: 'emphasize' },
+        'Overall ratings and reviews'
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'Reviews can only be made by diners who have eaten at this restaurant'
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'average-container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'avg-rating-block' },
+          _react2.default.createElement(_Stars2.default, { starRating: averageRating })
+        ),
+        _react2.default.createElement(
+          'span',
+          null,
+          averageRating,
+          ' stars based on recent ratings'
+        )
+      ),
+      _react2.default.createElement('br', null),
+      _react2.default.createElement(
+        'div',
+        { className: 'average-block' },
+        _react2.default.createElement(
+          'span',
+          { className: 'rating' },
+          '\xA0',
+          findFoodRatingOfRestaurant(props.restaurantInfo)
+        ),
+        _react2.default.createElement(
+          'span',
+          null,
+          ' Food '
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: 'rating' },
+          '\xA0',
+          findServiceRatingOfRestaurant(props.restaurantInfo)
+        ),
+        _react2.default.createElement(
+          'span',
+          null,
+          ' Service '
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: 'rating' },
+          '\xA0',
+          findAmbienceRatingOfRestaurant(props.restaurantInfo)
+        ),
+        _react2.default.createElement(
+          'span',
+          null,
+          ' Ambience '
+        )
+      ),
+      _react2.default.createElement('br', null),
+      _react2.default.createElement(
+        'div',
+        { className: 'header-icon-container' },
+        _react2.default.createElement('img', { src: './noise.png' }),
+        _react2.default.createElement(
+          'span',
+          null,
+          ' Noise - Moderate '
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('img', { src: './like.png' }),
+        _react2.default.createElement(
+          'span',
+          null,
+          '\xA0',
+          wouldRecommend(props.restaurantInfo, props.reviewsCount),
+          '% of people would recommend it to a friend '
+        )
+      ),
+      _react2.default.createElement('br', null),
+      _react2.default.createElement(
+        'div',
+        { className: 'LovedFor' },
+        _react2.default.createElement(
+          'span',
+          { className: 'emphasize' },
+          'Loved For '
+        ),
+        _react2.default.createElement('img', { src: './info.png' }),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'div',
+          { className: 'award' },
+          _react2.default.createElement('img', { className: 'award-text', src: './trophy.png' }),
+          _react2.default.createElement(
+            'span',
+            { className: 'award-text' },
+            '\xA0Most Booked 1000-Point Tables'
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            props.restaurantInfo.restaurantName
+          )
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'bargraph-container' },
+      _react2.default.createElement(_BarGraph2.default, { ratingsInfo: props.restaurantInfo })
+    )
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var countRating5 = function countRating5(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 5) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating4 = function countRating4(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 4) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating3 = function countRating3(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 3) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating2 = function countRating2(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 2) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating1 = function countRating1(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 1) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var BarGraph = function BarGraph(props) {
+  var lengthOf5 = countRating5(props.ratingsInfo);
+  var lengthOf4 = countRating4(props.ratingsInfo);
+  var lengthOf3 = countRating3(props.ratingsInfo);
+  var lengthOf2 = countRating2(props.ratingsInfo);
+  var lengthOf1 = countRating1(props.ratingsInfo);
+  var outOfPercentage = props.ratingsInfo.length;
+  //
+  return _react2.default.createElement(
+    "div",
+    { className: "bargraph" },
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bar-number" },
+        "5"
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "bar-line" },
+        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf5 / outOfPercentage * 300 + "px" } })
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bar-number" },
+        "4"
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "bar-line" },
+        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf4 / outOfPercentage * 300 + "px" } })
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bar-number" },
+        "3"
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "bar-line" },
+        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf3 / outOfPercentage * 300 + "px" } })
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bar-number" },
+        "2"
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "bar-line" },
+        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf2 / outOfPercentage * 300 + "px" } })
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bar-number" },
+        "1"
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "bar-line" },
+        _react2.default.createElement("div", { className: "bar-line-red", style: { width: lengthOf1 / outOfPercentage * 300 + "px" } })
+      )
+    )
+  );
+};
+
+exports.default = BarGraph;
 
 /***/ })
 /******/ ]);

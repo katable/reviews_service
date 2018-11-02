@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   fetchReviews() {
-    fetch('/restaurant/6/reviews')
+    fetch('/restaurant/2/reviews')
     .then((reviews) => {
       return reviews.json();
     })
@@ -40,10 +40,10 @@ class App extends React.Component {
     )
   }
 
-  render(){
+  render(){ 
     return (
       <div>
-       
+       <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
         {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
       </div>
     )

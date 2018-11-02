@@ -1,34 +1,32 @@
+/* CSS for review component */
+
 .review-container {
   border-bottom: 1px solid #2d333f;
   padding: 10px;
   font-family: 'Josefin Sans', sans-serif;
   color: #2d333f;
-  margin-top: 15px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  width: 100%;;
+  position: relative;
 }
 
-.header-container {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 15px;
-  border-bottom: 1px solid #2d333f;
-  border-top: 1px solid #2d333f;
-}
-
-.rating {
-  color: #da3743;
+.review-text-container {
+  margin-right: 2%;
+  margin-left: 2%;
+  display: flex;
+  width: 85%;
+  flex-wrap: wrap;
 }
 
 .ratings-container {
   font-weight: bold
 }
 
-.icon-container {
-  display: flex;
-  justify-content: flex-end;
+.rating {
+  color: #da3743;
 }
 
 .review {
@@ -36,31 +34,25 @@
   flex-flow: wrap;
 }
 
-.review-container {
-  display: flex;
-  padding-left: 20px;
-  width: 100%;
-  position: relative;
+.icon-container {
+  display: block;
+  position: absolute;
+  bottom: 11px;
+  right: 16px;
 }
 
-.username {
-  text-align: center
-  /* margin-left: 10%; */
-}
+/*CSS for username component*/
 
 .user-container {
   display: flex;
   width: 150px;
   flex-wrap: wrap;
   margin-right: 20px;
+  text-align: center;
 };
 
-.review-text-container {
-   margin-right: 5px;
-   margin-left: 5px;
-   display: flex;
-   width:85%;
-   flex-wrap: wrap;
+.username {
+  text-align: center
 }
 
 .location-font {
@@ -86,23 +78,100 @@
   padding-top: 25px;
 }
 
-.colored {
-  color: #da3743;
-}
+/*CSS for stars*/
 
 .stars-component {
   display: flex;
   flex-direction: row;
-  padding-bottom: 10px;
+  padding-bottom: 4%;
+}
+
+.colored {
+  color: #da3743;
 }
 
 .uncolored {
   color: #6f737b;
 }
 
-.icon-container {
+/*CSS for header*/
+
+.header-container {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 15px;
+  border-bottom: 1px solid #2d333f;
+  border-top: 1px solid #2d333f;
+  padding-left: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.average-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.avg-rating-block {
+  margin-right: 10px;
+}
+
+.header-icon-container {
+  margin-bottom: 5px;
+}
+
+.award {
+  margin-top: 10px;
+  border: 1px solid #2d333f;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.award:hover {
+  background: grey;
+}
+
+.award-text {
+  margin-top: 10px;
+}
+
+/* CSS for bargraph */
+
+.bargraph {
   display: block;
   position: absolute;
-  bottom: 11px;
-  right: 16px;
+  top: 94px;
+  right: 300px;
+}
+
+.bar-number {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+
+/* .bargraph-container {
+  display: block;
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.bar-line {
+  height: 20px;
+  width: 300px;
+  margin-bottom: 4px;
+  border: 1px solid #2d333f;
+}
+
+.bar-line-red {
+  background: #da3743;
+  height: 20px;
+}
+
+.emphasize {
+  font-weight: bold;
 }
