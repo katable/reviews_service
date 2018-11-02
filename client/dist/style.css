@@ -146,7 +146,17 @@
   display: block;
   position: absolute;
   top: 94px;
-  right: 300px;
+  left: 60%;
+}
+
+.header-info {
+  max-width: 50%;
+}
+
+@media all and (max-width: 975px) and (min-width: 300px) {
+  .header-info {
+    max-width: 20%;
+  }
 }
 
 .bar-number {

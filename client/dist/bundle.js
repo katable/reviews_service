@@ -18806,94 +18806,107 @@ var Header = function Header(props) {
       'div',
       { className: 'header-container' },
       _react2.default.createElement(
-        'h1',
-        null,
-        'What ',
-        props.reviewsCount,
-        ' People Are Saying'
-      ),
-      _react2.default.createElement(
-        'p',
-        { className: 'emphasize' },
-        'Overall ratings and reviews'
-      ),
-      _react2.default.createElement(
-        'p',
-        null,
-        'Reviews can only be made by diners who have eaten at this restaurant'
-      ),
-      _react2.default.createElement(
         'div',
-        { className: 'average-container' },
+        { className: 'header-top-container' },
         _react2.default.createElement(
           'div',
-          { className: 'avg-rating-block' },
-          _react2.default.createElement(_Stars2.default, { starRating: averageRating })
+          { className: 'header-info' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'What ',
+            props.reviewsCount,
+            ' People Are Saying'
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'emphasize' },
+            'Overall ratings and reviews'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Reviews can only be made by diners who have eaten at this restaurant'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'average-container' },
+            _react2.default.createElement(
+              'div',
+              { className: 'avg-rating-block' },
+              _react2.default.createElement(_Stars2.default, { starRating: averageRating })
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              averageRating,
+              ' stars based on recent ratings'
+            )
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'div',
+            { className: 'average-block' },
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              '\xA0',
+              findFoodRatingOfRestaurant(props.restaurantInfo)
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Food '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              '\xA0',
+              findServiceRatingOfRestaurant(props.restaurantInfo)
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Service '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'rating' },
+              '\xA0',
+              findAmbienceRatingOfRestaurant(props.restaurantInfo)
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Ambience '
+            )
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'div',
+            { className: 'header-icon-container' },
+            _react2.default.createElement('img', { src: './noise.png' }),
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Noise - Moderate '
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('img', { src: './like.png' }),
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xA0',
+              wouldRecommend(props.restaurantInfo, props.reviewsCount),
+              '% of people would recommend it to a friend '
+            )
+          )
         ),
         _react2.default.createElement(
-          'span',
-          null,
-          averageRating,
-          ' stars based on recent ratings'
-        )
-      ),
-      _react2.default.createElement('br', null),
-      _react2.default.createElement(
-        'div',
-        { className: 'average-block' },
-        _react2.default.createElement(
-          'span',
-          { className: 'rating' },
-          '\xA0',
-          findFoodRatingOfRestaurant(props.restaurantInfo)
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          ' Food '
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: 'rating' },
-          '\xA0',
-          findServiceRatingOfRestaurant(props.restaurantInfo)
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          ' Service '
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: 'rating' },
-          '\xA0',
-          findAmbienceRatingOfRestaurant(props.restaurantInfo)
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          ' Ambience '
-        )
-      ),
-      _react2.default.createElement('br', null),
-      _react2.default.createElement(
-        'div',
-        { className: 'header-icon-container' },
-        _react2.default.createElement('img', { src: './noise.png' }),
-        _react2.default.createElement(
-          'span',
-          null,
-          ' Noise - Moderate '
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('img', { src: './like.png' }),
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xA0',
-          wouldRecommend(props.restaurantInfo, props.reviewsCount),
-          '% of people would recommend it to a friend '
+          'div',
+          { className: 'bargraph-container' },
+          _react2.default.createElement(_BarGraph2.default, { ratingsInfo: props.restaurantInfo })
         )
       ),
       _react2.default.createElement('br', null),
@@ -18923,11 +18936,6 @@ var Header = function Header(props) {
           )
         )
       )
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'bargraph-container' },
-      _react2.default.createElement(_BarGraph2.default, { ratingsInfo: props.restaurantInfo })
     )
   );
 };

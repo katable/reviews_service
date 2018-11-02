@@ -53,32 +53,39 @@ const Header = (props) => {
   return (
   <div className="top-container">
     <div className="header-container">
-      <h1>What {props.reviewsCount} People Are Saying</h1>
-      <p className="emphasize">Overall ratings and reviews</p>
-      <p>Reviews can only be made by diners who have eaten at this restaurant</p>
-      <div className="average-container">
-        <div className="avg-rating-block">
-        <Stars starRating={averageRating}/>
+      <div className="header-top-container">
+        <div className="header-info">
+          <h1>What {props.reviewsCount} People Are Saying</h1>
+          <p className="emphasize">Overall ratings and reviews</p>
+          <p>Reviews can only be made by diners who have eaten at this restaurant</p>
+          <div className="average-container">
+            <div className="avg-rating-block">
+            <Stars starRating={averageRating}/>
+            </div>
+            <span>{averageRating} stars based on recent ratings</span>
+          </div>
+          <br />
+          <div className="average-block">
+            <span className="rating">&nbsp;{findFoodRatingOfRestaurant(props.restaurantInfo)}</span>
+            <span> Food </span>
+            <span className="rating">&nbsp;{findServiceRatingOfRestaurant(props.restaurantInfo)}</span>
+            <span> Service </span>
+            <span className="rating">&nbsp;{findAmbienceRatingOfRestaurant(props.restaurantInfo)}</span>
+            <span> Ambience </span>
+          </div>
+          <br />
+          <div className="header-icon-container">
+            <img src='./noise.png' />
+            <span> Noise - Moderate </span>
+            <br />
+            <br />
+            <img src = './like.png' />
+            <span>&nbsp;{wouldRecommend(props.restaurantInfo, props.reviewsCount)}% of people would recommend it to a friend </span>
+          </div>
         </div>
-        <span>{averageRating} stars based on recent ratings</span>
-      </div>
-      <br />
-      <div className="average-block">
-        <span className="rating">&nbsp;{findFoodRatingOfRestaurant(props.restaurantInfo)}</span>
-        <span> Food </span>
-        <span className="rating">&nbsp;{findServiceRatingOfRestaurant(props.restaurantInfo)}</span>
-        <span> Service </span>
-        <span className="rating">&nbsp;{findAmbienceRatingOfRestaurant(props.restaurantInfo)}</span>
-        <span> Ambience </span>
-      </div>
-      <br />
-      <div className="header-icon-container">
-        <img src='./noise.png' />
-        <span> Noise - Moderate </span>
-        <br />
-        <br />
-        <img src = './like.png' />
-        <span>&nbsp;{wouldRecommend(props.restaurantInfo, props.reviewsCount)}% of people would recommend it to a friend </span>
+        <div className="bargraph-container">
+          <BarGraph ratingsInfo={props.restaurantInfo}/>
+        </div>
       </div>
       <br />
       <div className="LovedFor">
@@ -91,9 +98,6 @@ const Header = (props) => {
         </div>
       </div>
     </div>
-    <div className="bargraph-container">
-    <BarGraph ratingsInfo={props.restaurantInfo}/>
-  </div>
   </div>
   );
 }
