@@ -18706,7 +18706,7 @@ var Header = function Header(props) {
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "avg-rating-block"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Stars_jsx__["a" /* default */], {
-    starRating: averageRating
+    starRating: Math.floor(averageRating)
   })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, averageRating, " stars based on recent ratings")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "average-block"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
