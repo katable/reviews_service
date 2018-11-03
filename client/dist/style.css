@@ -190,4 +190,9 @@
   height: 30px;
   margin-left: 12px;
   font-family: 'Josefin Sans', sans-serif;
+  border-radius: 15px
+}
+
+.dropdown:hover {
+  border: 5px solid #da3743;
 }
