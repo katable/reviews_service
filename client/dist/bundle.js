@@ -18305,7 +18305,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__ = __webpack_require__(36);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18342,7 +18342,10 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      reviews: []
+      reviews: [],
+      selectMenu: {
+        value: 'newest'
+      }
     };
     return _this;
   }
@@ -18370,8 +18373,27 @@ function (_React$Component) {
   }, {
     key: "renderReviews",
     value: function renderReviews() {
+      var reviews = [];
+
+      switch (this.state.selectMenu.value) {
+        case 'newest':
+          reviews = this.filterDataNewestHelperFunction(this.state.reviews);
+          break;
+
+        case 'highest-rating':
+          reviews = this.sortHighestRatingsFirst(this.state.reviews);
+          break;
+
+        case 'lowest-rating':
+          reviews = this.sortLowestRatingsFirst(this.state.reviews);
+          break;
+
+        default:
+          reviews = this.state.reviews;
+      }
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__["a" /* default */], {
-        reviews: this.state.reviews
+        reviews: reviews
       });
     }
   }, {
@@ -18382,6 +18404,40 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "renderFilteredData",
+    value: function renderFilteredData(event) {
+      event.preventDefault();
+      this.setState({
+        selectMenu: {
+          value: event.target.value
+        }
+      });
+    }
+  }, {
+    key: "filterDataNewestHelperFunction",
+    value: function filterDataNewestHelperFunction(list) {
+      list.forEach(function (review) {
+        review.time = new Date(review.review_time);
+      });
+      return list.sort(function (a, b) {
+        return b.time - a.time;
+      });
+    }
+  }, {
+    key: "sortHighestRatingsFirst",
+    value: function sortHighestRatingsFirst(list) {
+      return list.sort(function (a, b) {
+        return b.overall_rating - a.overall_rating;
+      });
+    }
+  }, {
+    key: "sortLowestRatingsFirst",
+    value: function sortLowestRatingsFirst(list) {
+      return list.sort(function (a, b) {
+        return a.overall_rating - b.overall_rating;
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header_jsx__["a" /* default */], {
@@ -18389,7 +18445,10 @@ function (_React$Component) {
         restaurantInfo: this.state.reviews
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "sorting-text"
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__["a" /* default */], null))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__["a" /* default */], {
+        onSelectHandler: this.renderFilteredData.bind(this),
+        value: this.state.selectMenu.value
+      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
     }
   }]);
 
@@ -18812,11 +18871,13 @@ var BarGraph = function BarGraph(props) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
-var DropdownMenu = function DropdownMenu(props) {
+var SelectMenu = function SelectMenu(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    id: "dropdown-menu"
+    className: "dropdown-menu"
   }, "Sort By", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
-    className: "dropdown"
+    className: "dropdown",
+    onChange: props.onSelectHandler,
+    value: props.value
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
     value: "newest"
   }, "Newest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
@@ -18824,24 +18885,9 @@ var DropdownMenu = function DropdownMenu(props) {
   }, "Highest Rating"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
     value: "lowest-rating"
   }, "Lowest Rating")));
-}; // class DropdownMenu extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       currentItem: {filter: 'Newest'},
-//       selected: true
-//     }
-//   }
-//   renderNewestData(event){
-//     if (event.target.selected)
-//   }
-//   render() {
-//     <DropdownMenu />
-//   }
-// } 
+};
 
-
-/* harmony default export */ __webpack_exports__["a"] = (DropdownMenu);
+/* harmony default export */ __webpack_exports__["a"] = (SelectMenu);
 
 /***/ })
 /******/ ]);

@@ -2,13 +2,14 @@ import React from 'react';
 import Reviews from './Reviews.jsx';
 import NoReviews from './NoReviews.jsx';
 import Header from './Header.jsx';
-import DropdownMenu from './DropdownMenu.jsx';
+import SelectMenu from './SelectMenu.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [], 
+      selectMenu: {value: 'newest'}
     }
   }
 
@@ -30,8 +31,22 @@ class App extends React.Component {
   )};
 
   renderReviews() {
+    let reviews = [];
+    switch(this.state.selectMenu.value) {
+      case 'newest':
+        reviews = this.filterDataNewestHelperFunction(this.state.reviews);
+        break;
+      case 'highest-rating':
+        reviews = this.sortHighestRatingsFirst(this.state.reviews);
+        break;
+      case 'lowest-rating':
+        reviews = this.sortLowestRatingsFirst(this.state.reviews);
+        break;
+      default:
+        reviews = this.state.reviews;
+    }
     return (
-      <Reviews reviews={this.state.reviews} />
+      <Reviews reviews={reviews} />
     )
   }
 
@@ -41,6 +56,34 @@ class App extends React.Component {
     )
   }
 
+  renderFilteredData(event) {
+    event.preventDefault();
+    this.setState({
+      selectMenu: {value: event.target.value}
+    })
+  };
+
+  filterDataNewestHelperFunction(list) {
+    list.forEach((review) => {
+      review.time = new Date(review.review_time);
+    });
+    return list.sort((a,b) => {
+      return b.time-a.time;
+    });
+  };
+
+  sortHighestRatingsFirst(list) {
+    return list.sort((a,b) => {
+      return b.overall_rating - a.overall_rating;
+    });
+  };
+ 
+  sortLowestRatingsFirst(list) {
+    return list.sort((a,b) => {
+      return a.overall_rating - b.overall_rating;
+    });
+  };
+
   render(){ 
     return (
       <div>
@@ -49,7 +92,7 @@ class App extends React.Component {
         </div>
         <div>
           <div className="sorting-text">
-            <DropdownMenu />
+            <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
           </div> 
         </div>
         <div>
