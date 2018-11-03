@@ -129,7 +129,8 @@
 }
 
 .award:hover {
-  background: grey;
+  border: 5px solid #da3743;
+  outline: none;
 }
 
 .award-text {
