@@ -3,12 +3,12 @@ import UserIcon from './UserIcon.jsx';
 
 const User = (props) => (
   <div className="user">
-      <div className="user-container">
+      <div className="user-container" style={{display: "inline-block"}}>
         <div className="pic-container">
-          <UserIcon name={props.username} />
+          <UserIcon name={props.username}/>
         </div>
         <div className="user-text-container">
-        <div className="username">
+        <div className="username" style = {{textAlign: "center"}}>
           <br />
           {props.username}
         </div>

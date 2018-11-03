@@ -3,13 +3,15 @@ import Reviews from './Reviews.jsx';
 import NoReviews from './NoReviews.jsx';
 import Header from './Header.jsx';
 import SelectMenu from './SelectMenu.jsx';
+import SearchBar from './SearchBar.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [], 
-      selectMenu: {value: 'newest'}
+      selectMenu: {value: 'newest'},
+      searchBar: {search: ''}
     }
   }
 
@@ -36,6 +38,8 @@ class App extends React.Component {
       case 'newest':
         reviews = this.filterDataNewestHelperFunction(this.state.reviews);
         break;
+      case 'oldest':
+        reviews =  this.filterDataOldestHelperFunction(this.state.reviews);
       case 'highest-rating':
         reviews = this.sortHighestRatingsFirst(this.state.reviews);
         break;
@@ -43,11 +47,18 @@ class App extends React.Component {
         reviews = this.sortLowestRatingsFirst(this.state.reviews);
         break;
       default:
-        reviews = this.state.reviews;
+      reviews = this.filterDataNewestHelperFunction(this.state.reviews);
     }
     return (
       <Reviews reviews={reviews} />
     )
+  }
+
+  searchReviews(event) {
+    event.preventDefault();
+    this.state.reviews.filter((review)=>{
+      return review
+    })
   }
 
   renderNoReviews() {
@@ -72,6 +83,15 @@ class App extends React.Component {
     });
   };
 
+  filterDataOldestHelperFunction(list) {
+    list.forEach((review) => {
+      review.time = new Date(review.review_time);
+    });
+    return list.sort((a, b) => {
+      return a.time - b.time;
+    });
+  }
+
   sortHighestRatingsFirst(list) {
     return list.sort((a,b) => {
       return b.overall_rating - a.overall_rating;
@@ -93,6 +113,7 @@ class App extends React.Component {
         <div>
           <div className="sorting-text">
             <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
+            <SearchBar />
           </div> 
         </div>
         <div>

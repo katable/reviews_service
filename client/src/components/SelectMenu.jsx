@@ -5,6 +5,7 @@ const SelectMenu = (props) => (
     Sort By
     <select className="dropdown" onChange={props.onSelectHandler} value={props.value}>
       <option value ="newest">Newest</option>
+      <option value="oldest">Oldest</option>
       <option value = "highest-rating">Highest Rating</option>
       <option value = "lowest-rating">Lowest Rating</option>
     </select>

@@ -18306,6 +18306,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__ = __webpack_require__(37);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18330,6 +18331,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -18345,6 +18347,9 @@ function (_React$Component) {
       reviews: [],
       selectMenu: {
         value: 'newest'
+      },
+      searchBar: {
+        search: ''
       }
     };
     return _this;
@@ -18380,6 +18385,9 @@ function (_React$Component) {
           reviews = this.filterDataNewestHelperFunction(this.state.reviews);
           break;
 
+        case 'oldest':
+          reviews = this.filterDataOldestHelperFunction(this.state.reviews);
+
         case 'highest-rating':
           reviews = this.sortHighestRatingsFirst(this.state.reviews);
           break;
@@ -18389,11 +18397,19 @@ function (_React$Component) {
           break;
 
         default:
-          reviews = this.state.reviews;
+          reviews = this.filterDataNewestHelperFunction(this.state.reviews);
       }
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__["a" /* default */], {
         reviews: reviews
+      });
+    }
+  }, {
+    key: "searchReviews",
+    value: function searchReviews(event) {
+      event.preventDefault();
+      this.state.reviews.filter(function (review) {
+        return review;
       });
     }
   }, {
@@ -18424,6 +18440,16 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "filterDataOldestHelperFunction",
+    value: function filterDataOldestHelperFunction(list) {
+      list.forEach(function (review) {
+        review.time = new Date(review.review_time);
+      });
+      return list.sort(function (a, b) {
+        return a.time - b.time;
+      });
+    }
+  }, {
     key: "sortHighestRatingsFirst",
     value: function sortHighestRatingsFirst(list) {
       return list.sort(function (a, b) {
@@ -18448,7 +18474,7 @@ function (_React$Component) {
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__["a" /* default */], {
         onSelectHandler: this.renderFilteredData.bind(this),
         value: this.state.selectMenu.value
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__["a" /* default */], null))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
     }
   }]);
 
@@ -18483,7 +18509,12 @@ var Reviews = function Reviews(props) {
       city: review.city ? review.city : "",
       state: review.state ? review.state : ""
     })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "review-content-container"
+      className: "review-content-container",
+      style: {
+        flex: 4,
+        marginTop: "30px",
+        paddingBottom: "20px"
+      }
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
       className: "review-heading-container"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
@@ -18531,7 +18562,10 @@ var User = function User(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "user"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "user-container"
+    className: "user-container",
+    style: {
+      display: "inline-block"
+    }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "pic-container"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UserIcon_jsx__["a" /* default */], {
@@ -18539,7 +18573,10 @@ var User = function User(props) {
   })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "user-text-container"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "username"
+    className: "username",
+    style: {
+      textAlign: "center"
+    }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), props.username), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "location"
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
@@ -18881,6 +18918,8 @@ var SelectMenu = function SelectMenu(props) {
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
     value: "newest"
   }, "Newest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "oldest"
+  }, "Oldest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
     value: "highest-rating"
   }, "Highest Rating"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
     value: "lowest-rating"
@@ -18888,6 +18927,32 @@ var SelectMenu = function SelectMenu(props) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (SelectMenu);
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var SearchBar = function SearchBar(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+    className: "searchbar-container",
+    action: "action_page.php"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+    type: "text",
+    placeholder: "Search..",
+    name: "search"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+    type: "submit"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+    className: "fa fa-search"
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (SearchBar);
 
 /***/ })
 /******/ ]);

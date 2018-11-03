@@ -12,7 +12,7 @@ const Reviews = (props) => (
               city={review.city ? review.city : ""}
               state={review.state ? review.state : ""}/>
           </div>
-          <div className="review-content-container">
+          <div className="review-content-container" style={{flex: 4, marginTop: "30px", paddingBottom: "20px"}}>
             <div className="review-heading-container">
               <div className="star-container">
                 <Stars starRating={review.overall_rating} /> 
