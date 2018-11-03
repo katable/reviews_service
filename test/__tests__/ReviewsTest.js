@@ -1,6 +1,7 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
 import Stars from '../../client/src/components/Stars.jsx';
+import Star from '../../client/src/components/Star.jsx';
 import ReviewsFile from '../../client/src/components/Reviews.jsx';
 
 let reviewSample = 
@@ -26,6 +27,17 @@ let reviewSample =
 describe('reviews test', function(){
   it('should have stars', function (){
     let mounted = mount(<Stars starRating={reviewSample} />)
-    // mounted.find().length
+  });
+});
+
+describe('Star Test', function(){
+  it('should have colored class', function (){
+    let wrapper = mount(<Star colored={true}/>);
+    expect(wrapper.find(".fas").hasClass('colored')).to.equal(true);
+  })
+
+  it('should not have colored class', function(){
+    let wrapper = mount(<Star colored={false}/>);
+    expect(wrapper.find(".fas").hasClass('colored')).to.equal(false);
   });
 });

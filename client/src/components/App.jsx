@@ -47,9 +47,13 @@ class App extends React.Component {
         <div>
           <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
         </div>
-  
         <div>
-            {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
+          <div className="sorting-text">
+            <DropdownMenu />
+          </div> 
+        </div>
+        <div>
+          {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
         </div>
       </div>
     )

@@ -1,29 +1,32 @@
-// import React from 'react';
+import React from 'react';
+
+const DropdownMenu = (props) => (
+  <div id="dropdown-menu">
+    Sort By
+    <select className="dropdown">
+      <option value="newest">Newest</option>
+      <option value = "highest-rating">Highest Rating</option>
+      <option value = "lowest-rating">Lowest Rating</option>
+    </select>
+  </div>
+);
 
 // class DropdownMenu extends React.Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
-//       selection: [
-//         {id: 0,
-//          title: 'Newest',
-//          selected: true
-//         },
-//         {id: 1,
-//         title: 'Highest Rating',
-//         selected: false
-//         },
-//         {id: 2,
-//         title: 'Lowest Rating',
-//         selected: false
-//         } 
-//       ]
+//       currentItem: {filter: 'Newest'},
+//       selected: true
 //     }
 //   }
 
-//   render() {
-
+//   renderNewestData(event){
+//     if (event.target.selected)
 //   }
-// }
 
-// export default DropdownMenu;
+//   render() {
+//     <DropdownMenu />
+//   }
+// } 
+
+export default DropdownMenu;

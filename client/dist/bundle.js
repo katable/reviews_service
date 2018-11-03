@@ -18306,7 +18306,6 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18388,7 +18387,9 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header_jsx__["a" /* default */], {
         reviewsCount: this.state.reviews.length,
         restaurantInfo: this.state.reviews
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "sorting-text"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__DropdownMenu_jsx__["a" /* default */], null))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
     }
   }]);
 
@@ -18508,6 +18509,8 @@ function getInitials(name) {
   return newName.toUpperCase();
 }
 
+;
+
 function randomizeColors() {
   var color = '#';
   var letters = '0123456789ABCDEF';
@@ -18518,6 +18521,8 @@ function randomizeColors() {
 
   return color;
 }
+
+;
 
 var UserIcon = function UserIcon(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
@@ -18800,33 +18805,43 @@ var BarGraph = function BarGraph(props) {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// import React from 'react';
-// class DropdownMenu extends React.Component {
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var DropdownMenu = function DropdownMenu(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    id: "dropdown-menu"
+  }, "Sort By", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
+    className: "dropdown"
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "newest"
+  }, "Newest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "highest-rating"
+  }, "Highest Rating"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "lowest-rating"
+  }, "Lowest Rating")));
+}; // class DropdownMenu extends React.Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
-//       selection: [
-//         {id: 0,
-//          title: 'Newest',
-//          selected: true
-//         },
-//         {id: 1,
-//         title: 'Highest Rating',
-//         selected: false
-//         },
-//         {id: 2,
-//         title: 'Lowest Rating',
-//         selected: false
-//         } 
-//       ]
+//       currentItem: {filter: 'Newest'},
+//       selected: true
 //     }
 //   }
-//   render() {
+//   renderNewestData(event){
+//     if (event.target.selected)
 //   }
-// }
-// export default DropdownMenu;
+//   render() {
+//     <DropdownMenu />
+//   }
+// } 
+
+
+/* harmony default export */ __webpack_exports__["a"] = (DropdownMenu);
 
 /***/ })
 /******/ ]);

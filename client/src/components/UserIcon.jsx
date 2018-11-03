@@ -6,7 +6,7 @@ function getInitials (name) {
     return "OT";
   }
   return newName.toUpperCase();
-}
+};
 
 function randomizeColors() {
   let color = '#';
@@ -15,7 +15,7 @@ function randomizeColors() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-}
+};
 
 const UserIcon = (props) => (
   <div className = "profile-icon" 

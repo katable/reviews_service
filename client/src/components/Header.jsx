@@ -8,7 +8,7 @@ const findOverallRatingOfRestaurant = (list) => {
     sum += review.overall_rating;
   })
   return parseFloat((sum/list.length).toFixed(1));
-}
+};
 
 const findFoodRatingOfRestaurant = (list) => {
   let sum = 0;
@@ -16,7 +16,7 @@ const findFoodRatingOfRestaurant = (list) => {
     sum += review.food_rating;
   })
   return parseFloat((sum/list.length).toFixed(1));
-}
+};
 
 const findServiceRatingOfRestaurant = (list) => {
   let sum = 0;
@@ -24,7 +24,7 @@ const findServiceRatingOfRestaurant = (list) => {
     sum += review.service_rating;
   })
   return parseFloat((sum/list.length).toFixed(1));
-}
+};
 
 const findAmbienceRatingOfRestaurant = (list) => {
   let sum = 0;
@@ -32,7 +32,7 @@ const findAmbienceRatingOfRestaurant = (list) => {
     sum += review.ambience_rating;
   })
   return parseFloat((sum/list.length).toFixed(1));
-}
+};
 
 const wouldRecommend = (list, listLength) => {
   let arr = [];
@@ -46,7 +46,7 @@ const wouldRecommend = (list, listLength) => {
     sum += count;
   })
   return Math.ceil((sum/listLength)*100);
-}
+};
 
 const Header = (props) => {
   const averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
@@ -60,7 +60,7 @@ const Header = (props) => {
           <p>Reviews can only be made by diners who have eaten at this restaurant</p>
           <div className="average-container">
             <div className="avg-rating-block">
-            <Stars starRating={averageRating}/>
+              <Stars starRating={averageRating}/>
             </div>
             <span>{averageRating} stars based on recent ratings</span>
           </div>

@@ -3,7 +3,7 @@ import UserIcon from './UserIcon.jsx';
 
 const User = (props) => (
   <div className="user">
-        <div className="user-container">
+      <div className="user-container">
         <div className="pic-container">
           <UserIcon name={props.username} />
         </div>

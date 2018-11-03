@@ -11,12 +11,12 @@ const createStars = (numStars) => {
     stars.push(<Star colored={false}/>);
   }
   return stars;
-}
+};
 
 const Stars = (props) => (
   <div className="stars-component">
     { createStars(props.starRating) }
   </div>
-)
+);
 
 export default Stars;
