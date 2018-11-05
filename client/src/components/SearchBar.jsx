@@ -8,6 +8,6 @@ const SearchBar = (props) => (
       <button type="submit" className={style.searchButton}><i className="fa fa-search"></i></button>
     </form>
   </div> 
-); //inline block?
+); 
 
 export default SearchBar;
