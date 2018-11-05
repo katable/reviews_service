@@ -1,5 +1,6 @@
 import React from 'react';
 import Star from './Star.jsx';
+import style from './style.css';
 
 const createStars = (numStars) => {
   const uncoloredStars = 5 - numStars;
@@ -14,7 +15,7 @@ const createStars = (numStars) => {
 };
 
 const Stars = (props) => (
-  <div className="stars-component">
+  <div className={style.starsComponent}>
     { createStars(props.starRating) }
   </div>
 );

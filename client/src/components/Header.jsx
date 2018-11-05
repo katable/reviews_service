@@ -1,6 +1,7 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 import BarGraph from './BarGraph.jsx';
+import style from './style.css';
 
 const findOverallRatingOfRestaurant = (list) => {
   let sum = 0;
@@ -51,30 +52,30 @@ const wouldRecommend = (list, listLength) => {
 const Header = (props) => {
   const averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
   return (
-    <div className="top-container">
-      <div className="header-container">
-        <div className="header-top-container">
-          <div className="header-info">
+    <div className={style.topContainer}>
+      <div className={style.headerContainer}>
+        <div className={style.headerTopContainer}>
+          <div className={style.headerInfo}>
             <h1>What {props.reviewsCount} People Are Saying</h1>
-            <p className="emphasize">Overall ratings and reviews</p>
+            <p className={style.emphasize}>Overall ratings and reviews</p>
             <p>Reviews can only be made by diners who have eaten at this restaurant</p>
-            <div className="average-container">
-              <div className="avg-rating-block">
+            <div className={style.averageContainer}>
+              <div className={style.avgRatingBlock}>
                 <Stars starRating={Math.floor(averageRating)}/>
               </div>
               <span>{averageRating} stars based on recent ratings</span>
             </div>
             <br />
-            <div className="average-block">
-              <span className="rating">&nbsp;{findFoodRatingOfRestaurant(props.restaurantInfo)}</span>
+            <div className={style.averageBlock}>
+              <span className={style.rating}>&nbsp;{findFoodRatingOfRestaurant(props.restaurantInfo)}</span>
               <span> Food </span>
-              <span className="rating">&nbsp;{findServiceRatingOfRestaurant(props.restaurantInfo)}</span>
+              <span className={style.rating}>&nbsp;{findServiceRatingOfRestaurant(props.restaurantInfo)}</span>
               <span> Service </span>
-              <span className="rating">&nbsp;{findAmbienceRatingOfRestaurant(props.restaurantInfo)}</span>
+              <span className={style.rating}>&nbsp;{findAmbienceRatingOfRestaurant(props.restaurantInfo)}</span>
               <span> Ambience </span>
             </div>
             <br />
-            <div className="header-icon-container">
+            <div className={style.headerIconContainer}>
               <img src='./noise.png' />
               <span> Noise - Moderate </span>
               <br />
@@ -83,17 +84,17 @@ const Header = (props) => {
               <span>&nbsp;{wouldRecommend(props.restaurantInfo, props.reviewsCount)}% of people would recommend it to a friend </span>
             </div>
           </div>
-          <div className="bargraph-container">
+          <div className={style.bargraphContainer}>
             <BarGraph ratingsInfo={props.restaurantInfo}/>
           </div>
         </div>
         <br />
-        <div className="LovedFor">
-          <span className="emphasize">Loved For </span><img src='./info.png'/>
+        <div className={style.LovedFor}>
+          <span className={style.emphasize}>Loved For </span><img src='./info.png'/>
           <br />
-          <div className="award">
-            <img className="award-text" src= './trophy.png' />
-            <span className="award-text">&nbsp;Most Booked 1000-Point Tables</span>
+          <div className={style.award}>
+            <img className={style.awardText} src= './trophy.png' />
+            <span className={style.awardText}>&nbsp;Most Booked 1000-Point Tables</span>
             <span>{props.restaurantInfo.restaurantName}</span>
           </div>
         </div>

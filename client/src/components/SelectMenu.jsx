@@ -1,9 +1,10 @@
 import React from 'react';
+import style from './style.css';
 
 const SelectMenu = (props) => (
-  <div className="dropdown-menu">
+  <div className={style.dropdownMenu}>
     Sort By
-    <select className="dropdown" onChange={props.onSelectHandler} value={props.value}>
+    <select className={style.dropdown} onChange={props.onSelectHandler} value={props.value}>
       <option value ="newest">Newest</option>
       <option value="oldest">Oldest</option>
       <option value = "highest-rating">Highest Rating</option>

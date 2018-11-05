@@ -1,0 +1,224 @@
+/* CSS for review component */
+
+.reviewContainer {
+    border-bottom: 1px solid #2d333f;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #2d333f;
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 10%;
+  }
+  
+  .reviewTime {
+    margin-top: -2%;
+  }
+  
+  /* .review-content-container {
+    margin-top: 2%;
+    flex: 4;
+  } */
+  
+  .reviewText {
+    width: 85%;
+  } 
+  
+  .ratingsContainer {
+    font-weight: bold;
+  }
+  
+  .rating {
+    color: #da3743;
+  }
+  
+  .iconContainer {
+    display: inline-block;
+    position: relative;
+  }
+  
+  /*CSS for username component*/
+  
+  .userContainer {
+    display: flex;
+    flex: 1;
+    margin-right: 20px;
+    margin-top: 10px;
+    flex-direction: column;
+  };
+  
+  .username {
+    text-align: center;
+  }
+  
+  .locationFont {
+    color: #6f737b;
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .profileIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    margin-top: 5px;
+    margin-left: 45px;
+  }
+  
+  .name {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 25px;
+  }
+  
+  /*CSS for stars*/
+  
+  .starsComponent {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 4%;
+  }
+  
+  .colored {
+    color: #da3743;
+  }
+  
+  .uncolored {
+    color: #6f737b;
+  }
+  
+  /*CSS for header*/
+  
+  .headerContainer {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15px;
+    border-bottom: 1px solid #2d333f;
+    border-top: 1px solid #2d333f;
+    padding-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .averageContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .avgRatingBlock {
+    margin-right: 10px;
+  }
+  
+  .headerIconContainer {
+    margin-bottom: 5px;
+  }
+  
+  .award {
+    margin-top: 10px;
+    border: 1px solid #2d333f;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .award:hover {
+    border: 5px solid #da3743;
+    outline: none;
+  }
+  
+  .awardText {
+    margin-top: 10px;
+  }
+  
+  /* CSS for bargraph */
+  
+  .bargraph {
+    display: block;
+    position: absolute;
+    top: 94px;
+    left: 60%;
+  }
+  
+  .headerInfo {
+    max-width: 50%;
+  }
+  
+  @media all and (max-width: 975px) and (min-width: 300px) {
+    .header-info {
+      max-width: 20%;
+    }
+  }
+  
+  .barNumber {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+  }
+  
+  
+  .barLine {
+    height: 20px;
+    width: 300px;
+    margin-bottom: 4px;
+    border: 1px solid #2d333f;
+  }
+  
+  .barLineRed { 
+    background: #da3743;
+    height: 20px;
+  }
+  
+  .emphasize {
+    font-weight: bold;
+  }
+  
+  /*Sorting CSS*/
+  .sortingText{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-left: 10%;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  .dropdown {
+    width: 200px;
+    height: 30px;
+    margin-left: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    border-radius: 15px;
+  }
+  
+  .dropdown:hover {
+    border: 5px solid #da3743;
+    outline: none;
+  }
+  
+  .dropdown:focus{
+    outline: none;
+  }
+  
+  /*Search Container*/
+  form.searchContainer input[type=text]{
+    width: 200px;
+    height: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 711px;
+    margin-top: -9px;
+    padding-top: 10px;
+  }
+  
+  .searchButton {
+    height: 38px;
+    border-radius: 5px;
+  }
+
+  /* #fixedWidth {
+    width: 700px 
+  } */

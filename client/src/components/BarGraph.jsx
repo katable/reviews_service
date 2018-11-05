@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './style.css';
 
 const countRating5 = (list) => {
   let sum = 0;
@@ -57,41 +58,40 @@ const BarGraph = (props) => {
   const lengthOf2 = countRating2(props.ratingsInfo);
   const lengthOf1 = countRating1(props.ratingsInfo);
   const outOfPercentage = props.ratingsInfo.length;
-  //
   return (
-    <div className = "bargraph" >
+    <div className ={style.bargraph} >
       <div>
-        <span className="bar-number">5</span>
-        <div className="bar-line">
-          <div className="bar-line-red" style={{width: (lengthOf5/outOfPercentage)*300+"px"}}></div>
+        <span className={style.barNumber}>5</span>
+        <div className={style.barLine}>
+          <div className={style.barLineRed} style={{width: (lengthOf5/outOfPercentage)*300+"px"}}></div>
         </div>
       </div>
 
       <div>
-        <span className="bar-number">4</span>
-        <div className="bar-line">
-          <div className="bar-line-red" style={{width: (lengthOf4/outOfPercentage)*300+"px"}}></div>
+        <span className={style.barNumber}>4</span>
+        <div className={style.barLine}>
+          <div className={style.barLineRed} style={{width: (lengthOf4/outOfPercentage)*300+"px"}}></div>
         </div>
       </div>
 
       <div>
-        <span className="bar-number">3</span>
-        <div className="bar-line">
-          <div className="bar-line-red" style={{width: (lengthOf3/outOfPercentage)*300+"px"}}></div>
+        <span className={style.barNumber}>3</span>
+        <div className={style.barLine}>
+          <div className={style.barLineRed} style={{width: (lengthOf3/outOfPercentage)*300+"px"}}></div>
         </div>
       </div>
 
       <div>
-        <span className="bar-number">2</span>
-        <div className="bar-line">
-          <div className="bar-line-red" style={{width: (lengthOf2/outOfPercentage)*300+"px"}}></div>
+        <span className={style.barNumber}>2</span>
+        <div className={style.barLine}>
+          <div className={style.barLineRed} style={{width: (lengthOf2/outOfPercentage)*300+"px"}}></div>
         </div>
       </div>
 
       <div> 
-        <span className="bar-number">1</span>
-        <div className="bar-line">
-          <div className="bar-line-red" style={{width: (lengthOf1/outOfPercentage)*300+"px"}}></div>
+        <span className={style.barNumber}>1</span>
+        <div className={style.barLine}>
+          <div className={style.barLineRed} style={{width: (lengthOf1/outOfPercentage)*300+"px"}}></div>
         </div>
       </div>
     </div>

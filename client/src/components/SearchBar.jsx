@@ -1,12 +1,13 @@
 import React from 'react';
+import style from './style.css';
 
 const SearchBar = (props) => (
   <div>
-    <form className="searchbar-container" action="action_page.php">
-      <input type="text" placeholder="Search.." name="search" />
-      <button type="submit"><i className="fa fa-search"></i></button>
+    <form className={style.searchContainer}>
+      <input type="text" placeholder="Search.." name="search" onChange={props.onSearch}/>
+      <button type="submit" className={style.searchButton}><i className="fa fa-search"></i></button>
     </form>
-  </div>
-);
+  </div> 
+); //inline block?
 
 export default SearchBar;

@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './style.css';
 
 function getInitials (name) {
   let newName = name.replace(/[^A-Z]/g, '');
@@ -18,9 +19,9 @@ function randomizeColors() {
 };
 
 const UserIcon = (props) => (
-  <div className = "profile-icon" 
+  <div className = {style.profileIcon} 
   style={{background:randomizeColors()}}>
-    <div className = "name">
+    <div className = {style.name}>
       {getInitials(props.name)}
     </div>
   </div>
