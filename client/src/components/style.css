@@ -95,14 +95,10 @@
   .headerContainer {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 15px;
+    margin: 15px 10% 0px 10%;
     border-bottom: 1px solid #2d333f;
     border-top: 1px solid #2d333f;
-    padding-left: 5%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px 0px 10px 5%;
   }
   
   .averageContainer {
@@ -119,13 +115,12 @@
   }
   
   .award {
-    margin-top: 10px;
+    margin: 10px 0px 20px 0px;
     border: 1px solid #2d333f;
     height: 50px;
     width: 300px;
     border-radius: 8px;
     text-align: center;
-    margin-bottom: 20px;
   }
   
   .award:hover {
