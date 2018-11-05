@@ -10,15 +10,3 @@ const SearchBar = (props) => (
 ); 
 
 export default SearchBar;
-
-
-// const SearchBar = (props) => (
-//   <div>
-//     <form className={style.searchContainer}>
-//       <input type="text" placeholder="Search.." name="search" onChange={props.onSearch}/>
-//       <button type="submit" className={style.searchButton}><i className="fa fa-search"></i></button>
-//     </form>
-//   </div> 
-// ); 
-
-// export default SearchBar;
