@@ -175,23 +175,6 @@
   }
   
   /*Sorting CSS*/
-  .sortingText{
-    font-family: 'Josefin Sans', sans-serif;
-    margin-left: 10%;
-    margin-top: 20px;
-    font-size: 20px;
-    display: inline-block;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .dropdown {
-    width: 200px;
-    height: 30px;
-    margin-left: 12px;
-    font-family: 'Josefin Sans', sans-serif;
-    border-radius: 15px;
-  }
   
   .dropdown:hover {
     border: 5px solid #da3743;
@@ -202,6 +185,26 @@
     outline: none;
   }
   
+   /* to fix */
+
+   .sortingText{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-left: 10%;
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .dropdown {
+    width: 200px;
+    height: 30px;
+    margin-left: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    border-radius: 15px;
+    justify-content: flex-start;
+  }
+  
   /*Search Container*/
   form.searchContainer input[type=text]{
     width: 200px;
@@ -210,10 +213,11 @@
     border-radius: 5px;
     margin-right: 800px;
     /* margin-left: -21%; */
-    margin-left: 1%;
-    margin-top: 17px;
-    padding-top: 10px;
+    margin-left: 283px;
+    /* margin-top: 17px; */
+    justify-content: flex-start;
   }
+  /*end to fix */
 
   form.searchContainer input[type=text]:focus {
     outline: none;

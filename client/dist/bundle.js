@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,15 +71,65 @@
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
-} else {
   module.exports = __webpack_require__(17);
+} else {
+  module.exports = __webpack_require__(18);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(33);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(35)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--2!./style.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js??ref--2!./style.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -269,7 +319,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -311,7 +361,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -408,7 +458,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -429,10 +479,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -489,10 +539,10 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -506,7 +556,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -558,10 +608,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -575,9 +625,9 @@ module.exports = warning;
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(5);
-  var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(18);
+  var invariant = __webpack_require__(6);
+  var warning = __webpack_require__(7);
+  var ReactPropTypesSecret = __webpack_require__(19);
   var loggedTypeFailures = {};
 }
 
@@ -625,10 +675,10 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -667,7 +717,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -682,7 +732,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -745,10 +795,10 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -790,7 +840,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -861,7 +911,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -876,7 +926,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(21);
+var isTextNode = __webpack_require__(22);
 
 /*eslint-disable no-bitwise */
 
@@ -904,7 +954,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -934,14 +984,14 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Star_jsx__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Star_jsx__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_css__);
 
 
@@ -975,23 +1025,23 @@ var Stars = function Stars(props) {
 /* harmony default export */ __webpack_exports__["a"] = (Stars);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App_jsx__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App_jsx__ = __webpack_require__(29);
 
 
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_App_jsx__["a" /* default */], null), document.getElementById('app'));
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1004,7 +1054,7 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(2),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(4),n=__webpack_require__(5),p=__webpack_require__(3),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -1019,7 +1069,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1040,12 +1090,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(3);
-var emptyObject = __webpack_require__(4);
-var invariant = __webpack_require__(5);
-var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(7);
+var _assign = __webpack_require__(4);
+var emptyObject = __webpack_require__(5);
+var invariant = __webpack_require__(6);
+var warning = __webpack_require__(7);
+var emptyFunction = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(8);
 
 // TODO: this is special because it gets imported during build.
 
@@ -2381,10 +2431,10 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2403,7 +2453,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2441,15 +2491,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(20);
+  module.exports = __webpack_require__(21);
 } else {
-  module.exports = __webpack_require__(23);
+  module.exports = __webpack_require__(24);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2465,7 +2515,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
+var aa=__webpack_require__(0),l=__webpack_require__(9),B=__webpack_require__(4),C=__webpack_require__(3),ba=__webpack_require__(10),da=__webpack_require__(11),ea=__webpack_require__(12),fa=__webpack_require__(13),ia=__webpack_require__(14),D=__webpack_require__(5);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -2685,7 +2735,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2700,7 +2750,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(22);
+var isNode = __webpack_require__(23);
 
 /**
  * @param {*} object The object to check.
@@ -2713,7 +2763,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2741,7 +2791,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2763,20 +2813,20 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var React = __webpack_require__(0);
-var invariant = __webpack_require__(5);
-var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(8);
-var _assign = __webpack_require__(3);
-var emptyFunction = __webpack_require__(2);
-var EventListener = __webpack_require__(9);
-var getActiveElement = __webpack_require__(10);
-var shallowEqual = __webpack_require__(11);
-var containsNode = __webpack_require__(12);
-var focusNode = __webpack_require__(13);
-var emptyObject = __webpack_require__(4);
-var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(24);
-var camelizeStyleName = __webpack_require__(26);
+var invariant = __webpack_require__(6);
+var warning = __webpack_require__(7);
+var ExecutionEnvironment = __webpack_require__(9);
+var _assign = __webpack_require__(4);
+var emptyFunction = __webpack_require__(3);
+var EventListener = __webpack_require__(10);
+var getActiveElement = __webpack_require__(11);
+var shallowEqual = __webpack_require__(12);
+var containsNode = __webpack_require__(13);
+var focusNode = __webpack_require__(14);
+var emptyObject = __webpack_require__(5);
+var checkPropTypes = __webpack_require__(8);
+var hyphenateStyleName = __webpack_require__(25);
+var camelizeStyleName = __webpack_require__(27);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18140,10 +18190,10 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18158,7 +18208,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(25);
+var hyphenate = __webpack_require__(26);
 
 var msPattern = /^ms-/;
 
@@ -18185,7 +18235,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18221,7 +18271,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18236,7 +18286,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(27);
+var camelize = __webpack_require__(28);
 
 var msPattern = /^-ms-/;
 
@@ -18264,7 +18314,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18299,18 +18349,18 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__style_css__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Reviews_jsx__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NoReviews_jsx__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_jsx__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__style_css__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -18495,12 +18545,12 @@ function (_React$Component) {
         restaurantInfo: this.state.reviews
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: __WEBPACK_IMPORTED_MODULE_6__style_css___default.a.sortingText
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SelectMenu_jsx__["a" /* default */], {
         onSelectHandler: this.renderFilteredData.bind(this),
         value: this.state.selectMenu.value
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__["a" /* default */], {
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__SearchBar_jsx__["a" /* default */], {
         onSearch: this.onInputSearch.bind(this)
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
+      })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()));
     }
   }]);
 
@@ -18510,15 +18560,15 @@ function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (App);
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__User_jsx__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Stars_jsx__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__User_jsx__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Stars_jsx__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
 
 
@@ -18577,14 +18627,14 @@ var Reviews = function Reviews(props) {
 /* harmony default export */ __webpack_exports__["a"] = (Reviews);
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserIcon_jsx__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserIcon_jsx__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_css__);
 
 
@@ -18619,13 +18669,13 @@ var User = function User(props) {
 /* harmony default export */ __webpack_exports__["a"] = (User);
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
 
 
@@ -18669,344 +18719,53 @@ var UserIcon = function UserIcon(props) {
 /* harmony default export */ __webpack_exports__["a"] = (UserIcon);
 
 /***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
-
-
-
-var Star = function Star(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-    className: props.colored ? "fas fa-star ".concat(__WEBPACK_IMPORTED_MODULE_1__style_css___default.a.colored) : "fas fa-star ".concat(__WEBPACK_IMPORTED_MODULE_1__style_css___default.a.uncolored)
-  });
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Star);
-
-/***/ }),
 /* 33 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
+exports = module.exports = __webpack_require__(34)(false);
+// imports
 
 
+// module
+exports.push([module.i, "/* CSS for review component */\n\n.style__reviewContainer___MGzQE {\n    border-bottom: 1px solid #2d333f;\n    font-family: 'Josefin Sans', sans-serif;\n    color: #2d333f;\n    width: 80%;\n    height: auto;\n    display: flex;\n    align-items: flex-end;\n    margin-left: 10%;\n  }\n  \n  .style__reviewTime___2F3Pt {\n    margin-top: -2%;\n  }\n  \n  /* .review-content-container {\n    margin-top: 2%;\n    flex: 4;\n  } */\n  \n  .style__reviewText___2G-Lq {\n    width: 85%;\n  } \n  \n  .style__ratingsContainer___3i2o3 {\n    font-weight: bold;\n  }\n  \n  .style__rating___1TM2e {\n    color: #da3743;\n  }\n  \n  .style__iconContainer___2A2GE {\n    display: inline-block;\n    position: relative;\n  }\n  \n  /*CSS for username component*/\n  \n  .style__userContainer___3CyW- {\n    display: flex;\n    flex: 1;\n    margin-right: 20px;\n    margin-top: 10px;\n    flex-direction: column;\n  };\n  \n  .style__username___3EnAk {\n    text-align: center;\n  }\n  \n  .style__locationFont___gIwEh {\n    color: #6f737b;\n    font-size: 15px;\n    display: flex;\n    flex-wrap: wrap;\n    text-align: center;\n  }\n  \n  .style__profileIcon___31iU_ {\n    width: 60px;\n    height: 60px;\n    border-radius: 100px;\n    margin-top: 5px;\n    margin-left: 45px;\n  }\n  \n  .style__name___1brNH {\n    width: 100%;\n    text-align: center;\n    color: white;\n    padding-top: 25px;\n  }\n  \n  /*CSS for stars*/\n  \n  .style__starsComponent___30FiP {\n    display: flex;\n    flex-direction: row;\n    padding-bottom: 4%;\n  }\n  \n  .style__colored___11Lbz {\n    color: #da3743;\n  }\n  \n  .style__uncolored____9ueI {\n    color: #6f737b;\n  }\n  \n  /*CSS for header*/\n  \n  .style__headerContainer___18yaD {\n    font-family: 'Josefin Sans', sans-serif;\n    font-weight: bold;\n    margin: 15px 10% 0px 10%;\n    border-bottom: 1px solid #2d333f;\n    border-top: 1px solid #2d333f;\n    padding-top: 10px 0px 10px 5%;\n  }\n  \n  .style__averageContainer___2YSOF {\n    display: flex;\n    flex-wrap: wrap;\n  }\n  \n  .style__avgRatingBlock___TDPfi {\n    margin-right: 10px;\n  }\n  \n  .style__headerIconContainer___2GoqB {\n    margin-bottom: 5px;\n  }\n  \n  .style__award___1Kqpr {\n    margin: 10px 0px 20px 0px;\n    border: 1px solid #2d333f;\n    height: 50px;\n    width: 300px;\n    border-radius: 8px;\n    text-align: center;\n  }\n  \n  .style__award___1Kqpr:hover {\n    border: 5px solid #da3743;\n    outline: none;\n  }\n  \n  .style__awardText___3thOi {\n    margin-top: 10px;\n  }\n  \n  /* CSS for bargraph */\n  \n  .style__bargraph___MYvjJ {\n    display: block;\n    position: absolute;\n    top: 94px;\n    left: 60%;\n  }\n  \n  .style__headerInfo___1Ywkd {\n    max-width: 50%;\n  }\n  \n  @media all and (max-width: 975px) and (min-width: 300px) {\n    .style__header-info___101g4 {\n      max-width: 20%;\n    }\n  }\n  \n  .style__barNumber___1pFIA {\n    font-family: 'Josefin Sans', sans-serif;\n    font-weight: bold;\n  }\n  \n  \n  .style__barLine___3gTV_ {\n    height: 20px;\n    width: 300px;\n    margin-bottom: 4px;\n    border: 1px solid #B9B4B4;\n    border-radius: 3px;\n  }\n  \n  .style__barLineRed___2O4Vu { \n    background: #da3743;\n    height: 20px;\n  }\n  \n  .style__emphasize___1BQ9x {\n    font-weight: bold;\n  }\n  \n  /*Sorting CSS*/\n  \n  .style__dropdown___26Qyl:hover {\n    border: 5px solid #da3743;\n    outline: none;\n  }\n  \n  .style__dropdown___26Qyl:focus{\n    outline: none;\n  }\n  \n   /* to fix */\n\n   .style__sortingText___1pCmU{\n    font-family: 'Josefin Sans', sans-serif;\n    margin-left: 10%;\n    margin-top: 20px;\n    font-size: 20px;\n    display: flex;\n    justify-content: flex-start;\n  }\n\n  .style__dropdown___26Qyl {\n    width: 200px;\n    height: 30px;\n    margin-left: 12px;\n    font-family: 'Josefin Sans', sans-serif;\n    border-radius: 15px;\n    justify-content: flex-start;\n  }\n  \n  /*Search Container*/\n  form.style__searchContainer___1ApL8 input[type=text]{\n    width: 200px;\n    height: 10px;\n    padding: 10px;\n    border-radius: 5px;\n    margin-right: 800px;\n    /* margin-left: -21%; */\n    margin-left: 283px;\n    /* margin-top: 17px; */\n    justify-content: flex-start;\n  }\n  /*end to fix */\n\n  form.style__searchContainer___1ApL8 input[type=text]:focus {\n    outline: none;\n  }\n\n  form.style__searchContainer___1ApL8 input[type=text]:hover{\n    border: 2px solid #da3743\n  }\n  \n  .style__searchButton___1nmtj {\n    height: 33px;\n    border-radius: 5px;\n    margin-right: 215px\n  }\n\n  .style__searchButton___1nmtj:focus {\n    outline: none;\n  }\n\n  /* #fixedWidth {\n    width: 700px \n  } */", ""]);
 
-var NoReviews = function NoReviews(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.noReviewsContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "Be The First to Review This Restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Write a review"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "At present, ", props.restaurantName, " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."));
+// exports
+exports.locals = {
+	"reviewContainer": "style__reviewContainer___MGzQE",
+	"reviewTime": "style__reviewTime___2F3Pt",
+	"reviewText": "style__reviewText___2G-Lq",
+	"ratingsContainer": "style__ratingsContainer___3i2o3",
+	"rating": "style__rating___1TM2e",
+	"iconContainer": "style__iconContainer___2A2GE",
+	"userContainer": "style__userContainer___3CyW-",
+	"username": "style__username___3EnAk",
+	"locationFont": "style__locationFont___gIwEh",
+	"profileIcon": "style__profileIcon___31iU_",
+	"name": "style__name___1brNH",
+	"starsComponent": "style__starsComponent___30FiP",
+	"colored": "style__colored___11Lbz",
+	"uncolored": "style__uncolored____9ueI",
+	"headerContainer": "style__headerContainer___18yaD",
+	"averageContainer": "style__averageContainer___2YSOF",
+	"avgRatingBlock": "style__avgRatingBlock___TDPfi",
+	"headerIconContainer": "style__headerIconContainer___2GoqB",
+	"award": "style__award___1Kqpr",
+	"awardText": "style__awardText___3thOi",
+	"bargraph": "style__bargraph___MYvjJ",
+	"headerInfo": "style__headerInfo___1Ywkd",
+	"header-info": "style__header-info___101g4",
+	"barNumber": "style__barNumber___1pFIA",
+	"barLine": "style__barLine___3gTV_",
+	"barLineRed": "style__barLineRed___2O4Vu",
+	"emphasize": "style__emphasize___1BQ9x",
+	"dropdown": "style__dropdown___26Qyl",
+	"sortingText": "style__sortingText___1pCmU",
+	"searchContainer": "style__searchContainer___1ApL8",
+	"searchButton": "style__searchButton___1nmtj"
 };
-
-/* harmony default export */ __webpack_exports__["a"] = (NoReviews); //add restaurant name here? At present, restaurantName has no reviews.
 
 /***/ }),
 /* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Stars_jsx__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
-
-
-
-
-
-var findOverallRatingOfRestaurant = function findOverallRatingOfRestaurant(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    sum += review.overall_rating;
-  });
-  return parseFloat((sum / list.length).toFixed(1));
-};
-
-var findFoodRatingOfRestaurant = function findFoodRatingOfRestaurant(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    sum += review.food_rating;
-  });
-  return parseFloat((sum / list.length).toFixed(1));
-};
-
-var findServiceRatingOfRestaurant = function findServiceRatingOfRestaurant(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    sum += review.service_rating;
-  });
-  return parseFloat((sum / list.length).toFixed(1));
-};
-
-var findAmbienceRatingOfRestaurant = function findAmbienceRatingOfRestaurant(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    sum += review.ambience_rating;
-  });
-  return parseFloat((sum / list.length).toFixed(1));
-};
-
-var wouldRecommend = function wouldRecommend(list, listLength) {
-  var arr = [];
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating >= 3) {
-      arr.push(1);
-    }
-  });
-  arr.forEach(function (count) {
-    sum += count;
-  });
-  return Math.ceil(sum / listLength * 100);
-};
-
-var Header = function Header(props) {
-  var averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.topContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerTopContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerInfo
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "What ", props.reviewsCount, " People Are Saying"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.emphasize
-  }, "Overall ratings and reviews"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Reviews can only be made by diners who have eaten at this restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.averageContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.avgRatingBlock
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Stars_jsx__["a" /* default */], {
-    starRating: Math.floor(averageRating)
-  })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, averageRating, " stars based on recent ratings")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.averageBlock
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
-  }, "\xA0", findFoodRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Food "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
-  }, "\xA0", findServiceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Service "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
-  }, "\xA0", findAmbienceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Ambience ")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerIconContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-    src: "./noise.png"
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Noise - Moderate "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-    src: "./like.png"
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\xA0", wouldRecommend(props.restaurantInfo, props.reviewsCount), "% of people would recommend it to a friend "))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.bargraphContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__["a" /* default */], {
-    ratingsInfo: props.restaurantInfo
-  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.LovedFor
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.emphasize
-  }, "Loved For "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-    src: "./info.png"
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.award
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.awardText,
-    src: "./trophy.png"
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.awardText
-  }, "\xA0Most Booked 1000-Point Tables"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, props.restaurantInfo.restaurantName)))));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Header);
-
-/***/ }),
-/* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
-
-
-
-var countRating5 = function countRating5(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating === 5) {
-      sum++;
-    }
-  });
-  return sum;
-};
-
-var countRating4 = function countRating4(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating === 4) {
-      sum++;
-    }
-  });
-  return sum;
-};
-
-var countRating3 = function countRating3(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating === 3) {
-      sum++;
-    }
-  });
-  return sum;
-};
-
-var countRating2 = function countRating2(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating === 2) {
-      sum++;
-    }
-  });
-  return sum;
-};
-
-var countRating1 = function countRating1(list) {
-  var sum = 0;
-  list.forEach(function (review) {
-    if (review.overall_rating === 1) {
-      sum++;
-    }
-  });
-  return sum;
-};
-
-var BarGraph = function BarGraph(props) {
-  var lengthOf5 = countRating5(props.ratingsInfo);
-  var lengthOf4 = countRating4(props.ratingsInfo);
-  var lengthOf3 = countRating3(props.ratingsInfo);
-  var lengthOf2 = countRating2(props.ratingsInfo);
-  var lengthOf1 = countRating1(props.ratingsInfo);
-  var outOfPercentage = props.ratingsInfo.length;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.bargraph
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
-  }, "5"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
-    style: {
-      width: lengthOf5 / outOfPercentage * 300 + "px"
-    }
-  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
-  }, "4"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
-    style: {
-      width: lengthOf4 / outOfPercentage * 300 + "px"
-    }
-  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
-  }, "3"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
-    style: {
-      width: lengthOf3 / outOfPercentage * 300 + "px"
-    }
-  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
-  }, "2"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
-    style: {
-      width: lengthOf2 / outOfPercentage * 300 + "px"
-    }
-  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
-  }, "1"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
-    style: {
-      width: lengthOf1 / outOfPercentage * 300 + "px"
-    }
-  }))));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (BarGraph);
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
-
-
-
-var SelectMenu = function SelectMenu(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.dropdownMenu
-  }, "Sort By", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.dropdown,
-    onChange: props.onSelectHandler,
-    value: props.value
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
-    value: "newest"
-  }, "Newest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
-    value: "oldest"
-  }, "Oldest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
-    value: "highest-rating"
-  }, "Highest Rating"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
-    value: "lowest-rating"
-  }, "Lowest Rating")));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (SelectMenu);
-
-/***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
-
-
-
-var SearchBar = function SearchBar(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.searchContainer
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
-    type: "text",
-    placeholder: "Search...",
-    name: "search",
-    onChange: props.onSearch,
-    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.inputText
-  })));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (SearchBar);
-
-/***/ }),
-/* 38 */,
-/* 39 */,
-/* 40 */
 /***/ (function(module, exports) {
 
 /*
@@ -19088,7 +18847,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 41 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -19157,7 +18916,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(42);
+var	fixUrls = __webpack_require__(36);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -19494,7 +19253,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 42 */
+/* 36 */
 /***/ (function(module, exports) {
 
 
@@ -19589,100 +19348,339 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-var content = __webpack_require__(44);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
 
 
 
-var options = {"hmr":true}
+var Star = function Star(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+    className: props.colored ? "fas fa-star ".concat(__WEBPACK_IMPORTED_MODULE_1__style_css___default.a.colored) : "fas fa-star ".concat(__WEBPACK_IMPORTED_MODULE_1__style_css___default.a.uncolored)
+  });
+};
 
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(41)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--2!./style.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js??ref--2!./style.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
+/* harmony default export */ __webpack_exports__["a"] = (Star);
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(40)(false);
-// imports
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
 
 
-// module
-exports.push([module.i, "/* CSS for review component */\n\n.style__reviewContainer___MGzQE {\n    border-bottom: 1px solid #2d333f;\n    font-family: 'Josefin Sans', sans-serif;\n    color: #2d333f;\n    width: 80%;\n    height: auto;\n    display: flex;\n    align-items: flex-end;\n    margin-left: 10%;\n  }\n  \n  .style__reviewTime___2F3Pt {\n    margin-top: -2%;\n  }\n  \n  /* .review-content-container {\n    margin-top: 2%;\n    flex: 4;\n  } */\n  \n  .style__reviewText___2G-Lq {\n    width: 85%;\n  } \n  \n  .style__ratingsContainer___3i2o3 {\n    font-weight: bold;\n  }\n  \n  .style__rating___1TM2e {\n    color: #da3743;\n  }\n  \n  .style__iconContainer___2A2GE {\n    display: inline-block;\n    position: relative;\n  }\n  \n  /*CSS for username component*/\n  \n  .style__userContainer___3CyW- {\n    display: flex;\n    flex: 1;\n    margin-right: 20px;\n    margin-top: 10px;\n    flex-direction: column;\n  };\n  \n  .style__username___3EnAk {\n    text-align: center;\n  }\n  \n  .style__locationFont___gIwEh {\n    color: #6f737b;\n    font-size: 15px;\n    display: flex;\n    flex-wrap: wrap;\n    text-align: center;\n  }\n  \n  .style__profileIcon___31iU_ {\n    width: 60px;\n    height: 60px;\n    border-radius: 100px;\n    margin-top: 5px;\n    margin-left: 45px;\n  }\n  \n  .style__name___1brNH {\n    width: 100%;\n    text-align: center;\n    color: white;\n    padding-top: 25px;\n  }\n  \n  /*CSS for stars*/\n  \n  .style__starsComponent___30FiP {\n    display: flex;\n    flex-direction: row;\n    padding-bottom: 4%;\n  }\n  \n  .style__colored___11Lbz {\n    color: #da3743;\n  }\n  \n  .style__uncolored____9ueI {\n    color: #6f737b;\n  }\n  \n  /*CSS for header*/\n  \n  .style__headerContainer___18yaD {\n    font-family: 'Josefin Sans', sans-serif;\n    font-weight: bold;\n    margin: 15px 10% 0px 10%;\n    border-bottom: 1px solid #2d333f;\n    border-top: 1px solid #2d333f;\n    padding-top: 10px 0px 10px 5%;\n  }\n  \n  .style__averageContainer___2YSOF {\n    display: flex;\n    flex-wrap: wrap;\n  }\n  \n  .style__avgRatingBlock___TDPfi {\n    margin-right: 10px;\n  }\n  \n  .style__headerIconContainer___2GoqB {\n    margin-bottom: 5px;\n  }\n  \n  .style__award___1Kqpr {\n    margin: 10px 0px 20px 0px;\n    border: 1px solid #2d333f;\n    height: 50px;\n    width: 300px;\n    border-radius: 8px;\n    text-align: center;\n  }\n  \n  .style__award___1Kqpr:hover {\n    border: 5px solid #da3743;\n    outline: none;\n  }\n  \n  .style__awardText___3thOi {\n    margin-top: 10px;\n  }\n  \n  /* CSS for bargraph */\n  \n  .style__bargraph___MYvjJ {\n    display: block;\n    position: absolute;\n    top: 94px;\n    left: 60%;\n  }\n  \n  .style__headerInfo___1Ywkd {\n    max-width: 50%;\n  }\n  \n  @media all and (max-width: 975px) and (min-width: 300px) {\n    .style__header-info___101g4 {\n      max-width: 20%;\n    }\n  }\n  \n  .style__barNumber___1pFIA {\n    font-family: 'Josefin Sans', sans-serif;\n    font-weight: bold;\n  }\n  \n  \n  .style__barLine___3gTV_ {\n    height: 20px;\n    width: 300px;\n    margin-bottom: 4px;\n    border: 1px solid #B9B4B4;\n    border-radius: 3px;\n  }\n  \n  .style__barLineRed___2O4Vu { \n    background: #da3743;\n    height: 20px;\n  }\n  \n  .style__emphasize___1BQ9x {\n    font-weight: bold;\n  }\n  \n  /*Sorting CSS*/\n  .style__sortingText___1pCmU{\n    font-family: 'Josefin Sans', sans-serif;\n    margin-left: 10%;\n    margin-top: 20px;\n    font-size: 20px;\n    display: inline-block;\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .style__dropdown___26Qyl {\n    width: 200px;\n    height: 30px;\n    margin-left: 12px;\n    font-family: 'Josefin Sans', sans-serif;\n    border-radius: 15px;\n  }\n  \n  .style__dropdown___26Qyl:hover {\n    border: 5px solid #da3743;\n    outline: none;\n  }\n  \n  .style__dropdown___26Qyl:focus{\n    outline: none;\n  }\n  \n  /*Search Container*/\n  form.style__searchContainer___1ApL8 input[type=text]{\n    width: 200px;\n    height: 10px;\n    padding: 10px;\n    border-radius: 5px;\n    margin-right: 800px;\n    /* margin-left: -21%; */\n    margin-left: 1%;\n    margin-top: 17px;\n    padding-top: 10px;\n  }\n\n  form.style__searchContainer___1ApL8 input[type=text]:focus {\n    outline: none;\n  }\n\n  form.style__searchContainer___1ApL8 input[type=text]:hover{\n    border: 2px solid #da3743\n  }\n  \n  .style__searchButton___1nmtj {\n    height: 33px;\n    border-radius: 5px;\n    margin-right: 215px\n  }\n\n  .style__searchButton___1nmtj:focus {\n    outline: none;\n  }\n\n  /* #fixedWidth {\n    width: 700px \n  } */", ""]);
 
-// exports
-exports.locals = {
-	"reviewContainer": "style__reviewContainer___MGzQE",
-	"reviewTime": "style__reviewTime___2F3Pt",
-	"reviewText": "style__reviewText___2G-Lq",
-	"ratingsContainer": "style__ratingsContainer___3i2o3",
-	"rating": "style__rating___1TM2e",
-	"iconContainer": "style__iconContainer___2A2GE",
-	"userContainer": "style__userContainer___3CyW-",
-	"username": "style__username___3EnAk",
-	"locationFont": "style__locationFont___gIwEh",
-	"profileIcon": "style__profileIcon___31iU_",
-	"name": "style__name___1brNH",
-	"starsComponent": "style__starsComponent___30FiP",
-	"colored": "style__colored___11Lbz",
-	"uncolored": "style__uncolored____9ueI",
-	"headerContainer": "style__headerContainer___18yaD",
-	"averageContainer": "style__averageContainer___2YSOF",
-	"avgRatingBlock": "style__avgRatingBlock___TDPfi",
-	"headerIconContainer": "style__headerIconContainer___2GoqB",
-	"award": "style__award___1Kqpr",
-	"awardText": "style__awardText___3thOi",
-	"bargraph": "style__bargraph___MYvjJ",
-	"headerInfo": "style__headerInfo___1Ywkd",
-	"header-info": "style__header-info___101g4",
-	"barNumber": "style__barNumber___1pFIA",
-	"barLine": "style__barLine___3gTV_",
-	"barLineRed": "style__barLineRed___2O4Vu",
-	"emphasize": "style__emphasize___1BQ9x",
-	"sortingText": "style__sortingText___1pCmU",
-	"dropdown": "style__dropdown___26Qyl",
-	"searchContainer": "style__searchContainer___1ApL8",
-	"searchButton": "style__searchButton___1nmtj"
+var NoReviews = function NoReviews(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.noReviewsContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "Be The First to Review This Restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Write a review"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "At present, ", props.restaurantName, " has no reviews. Please add a review after your dining experience to help others make a decision about where to eat."));
 };
+
+/* harmony default export */ __webpack_exports__["a"] = (NoReviews); //add restaurant name here? At present, restaurantName has no reviews.
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Stars_jsx__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
+
+
+
+
+
+var findOverallRatingOfRestaurant = function findOverallRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.overall_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findFoodRatingOfRestaurant = function findFoodRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.food_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findServiceRatingOfRestaurant = function findServiceRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.service_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var findAmbienceRatingOfRestaurant = function findAmbienceRatingOfRestaurant(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    sum += review.ambience_rating;
+  });
+  return parseFloat((sum / list.length).toFixed(1));
+};
+
+var wouldRecommend = function wouldRecommend(list, listLength) {
+  var arr = [];
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating >= 3) {
+      arr.push(1);
+    }
+  });
+  arr.forEach(function (count) {
+    sum += count;
+  });
+  return Math.ceil(sum / listLength * 100);
+};
+
+var Header = function Header(props) {
+  var averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.topContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerTopContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerInfo
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "What ", props.reviewsCount, " People Are Saying"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.emphasize
+  }, "Overall ratings and reviews"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Reviews can only be made by diners who have eaten at this restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.averageContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.avgRatingBlock
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Stars_jsx__["a" /* default */], {
+    starRating: Math.floor(averageRating)
+  })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, averageRating, " stars based on recent ratings")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.averageBlock
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
+  }, "\xA0", findFoodRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Food "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
+  }, "\xA0", findServiceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Service "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.rating
+  }, "\xA0", findAmbienceRatingOfRestaurant(props.restaurantInfo)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Ambience ")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerIconContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./noise.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, " Noise - Moderate "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./like.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\xA0", wouldRecommend(props.restaurantInfo, props.reviewsCount), "% of people would recommend it to a friend "))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.bargraphContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BarGraph_jsx__["a" /* default */], {
+    ratingsInfo: props.restaurantInfo
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.LovedFor
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.emphasize
+  }, "Loved For "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    src: "./info.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.award
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.awardText,
+    src: "./trophy.png"
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.awardText
+  }, "\xA0Most Booked 1000-Point Tables"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, props.restaurantInfo.restaurantName)))));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Header);
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
+
+
+
+var countRating5 = function countRating5(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 5) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating4 = function countRating4(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 4) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating3 = function countRating3(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 3) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating2 = function countRating2(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 2) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var countRating1 = function countRating1(list) {
+  var sum = 0;
+  list.forEach(function (review) {
+    if (review.overall_rating === 1) {
+      sum++;
+    }
+  });
+  return sum;
+};
+
+var BarGraph = function BarGraph(props) {
+  var lengthOf5 = countRating5(props.ratingsInfo);
+  var lengthOf4 = countRating4(props.ratingsInfo);
+  var lengthOf3 = countRating3(props.ratingsInfo);
+  var lengthOf2 = countRating2(props.ratingsInfo);
+  var lengthOf1 = countRating1(props.ratingsInfo);
+  var outOfPercentage = props.ratingsInfo.length;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.bargraph
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
+  }, "5"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
+    style: {
+      width: lengthOf5 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
+  }, "4"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
+    style: {
+      width: lengthOf4 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
+  }, "3"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
+    style: {
+      width: lengthOf3 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
+  }, "2"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
+    style: {
+      width: lengthOf2 / outOfPercentage * 300 + "px"
+    }
+  }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barNumber
+  }, "1"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLine
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.barLineRed,
+    style: {
+      width: lengthOf1 / outOfPercentage * 300 + "px"
+    }
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (BarGraph);
+
+/***/ }),
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
+
+
+
+var SelectMenu = function SelectMenu(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.dropdownMenu
+  }, "Sort By", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.dropdown,
+    onChange: props.onSelectHandler,
+    value: props.value
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "newest"
+  }, "Newest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "oldest"
+  }, "Oldest"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "highest-rating"
+  }, "Highest Rating"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+    value: "lowest-rating"
+  }, "Lowest Rating")));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (SelectMenu);
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
+
+
+
+var SearchBar = function SearchBar(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.searchContainer
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+    type: "text",
+    placeholder: "Search...",
+    name: "search",
+    onChange: props.onSearch,
+    className: __WEBPACK_IMPORTED_MODULE_1__style_css___default.a.inputText
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (SearchBar);
 
 /***/ })
 /******/ ]);

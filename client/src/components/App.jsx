@@ -130,8 +130,12 @@ filterForSearchedResults(list, word) {
         </div>
         <div>
           <div className={style.sortingText}>
-            <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
-            <SearchBar onSearch={this.onInputSearch.bind(this)}/>
+            <div>
+              <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
+            </div>
+            <div>
+              <SearchBar onSearch={this.onInputSearch.bind(this)}/>
+            </div>
           </div> 
         </div>
         <div>
