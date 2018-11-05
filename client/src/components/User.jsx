@@ -1,20 +1,21 @@
 import React from 'react';
 import UserIcon from './UserIcon.jsx';
+import style from './style.css';
 
 const User = (props) => (
-  <div className="user">
-        <div className="user-container">
-        <div className="pic-container">
-          <UserIcon name={props.username} />
+  <div className={style.user}>
+      <div className={style.userContainer} style={{display: "inline-block"}}>
+        <div className={style.picContainer}>
+          <UserIcon name={props.username}/>
         </div>
-        <div className="user-text-container">
-        <div className="username">
+        <div className={style.userTextContainer}>
+        <div className={style.username} style = {{textAlign: "center"}}>
           <br />
           {props.username}
         </div>
         <br />
-        <div className="location">
-          <span className="location-font">{`${props.city}, ${props.state}`}</span>
+        <div className={style.location}>
+          <span className={style.locationFont}>{`${props.city}, ${props.state}`}</span>
           <br />
           <br />
         </div>

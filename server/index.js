@@ -38,7 +38,7 @@ app.get('/reviews/:review_id', (req, res) => {
 //getAllReviewsFromUser: select all reviews by the specific user
 app.get('/user/:user_id/reviews', (req, res) => {
   db.getAllReviewsFromUser(req.params.user_id, (err, results) => {
-    if (err) {
+    if (err) { //to fix
       res.status(404).send("reviews not found"); 
     } else {
       res.status(200).send(results); 
