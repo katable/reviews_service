@@ -21,7 +21,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
-    "build": "^0.1.4",
     "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
