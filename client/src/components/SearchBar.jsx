@@ -4,7 +4,7 @@ import style from './style.css';
 const SearchBar = (props) => (
   <div>
     <form className={style.searchContainer}>
-      <input type="text" placeholder="&#xf167; Search" name="search" onChange={props.onSearch} />
+      <input type="text" placeholder="Search..." name="search" onChange={props.onSearch} className={style.inputText}/>
     </form>
   </div> 
 ); 
