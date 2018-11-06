@@ -52,9 +52,9 @@ const wouldRecommend = (list, listLength) => {
 const whatPeopleWouldSay = (number) => {
   let str = "";
   if (number === 1) {
-    str += "What 1 person has to say";
+    str += "What 1 Person Is Saying";
   } else if (number > 1 || number === 0) {
-    str += `What ${number} people have to say`;
+    str += `What ${number} People Are Saying`;
   }
   return str;
 }

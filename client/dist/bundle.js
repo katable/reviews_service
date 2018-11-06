@@ -584,7 +584,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_App_jsx__["a" /* default */], null), document.getElementById('app'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_App_jsx__["a" /* default */], null), document.getElementById('reviews'));
 
 /***/ }),
 /* 8 */
@@ -23834,9 +23834,9 @@ var whatPeopleWouldSay = function whatPeopleWouldSay(number) {
   var str = "";
 
   if (number === 1) {
-    str += "What 1 person has to say";
+    str += "What 1 Person Is Saying";
   } else if (number > 1 || number === 0) {
-    str += "What ".concat(number, " people have to say");
+    str += "What ".concat(number, " People Are Saying");
   }
 
   return str;
