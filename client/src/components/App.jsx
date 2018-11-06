@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   fetchReviews() {
-    fetch('/restaurant/2/reviews')
+    fetch('/restaurant/6/reviews')
     .then((reviews) => {
       return reviews.json();
     })

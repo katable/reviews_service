@@ -49,6 +49,16 @@ const wouldRecommend = (list, listLength) => {
   return Math.ceil((sum/listLength)*100);
 };
 
+const whatPeopleWouldSay = (number) => {
+  let str = "";
+  if (number === 1) {
+    str += "What 1 person has to say";
+  } else if (number > 1 || number === 0) {
+    str += `What ${number} people have to say`;
+  }
+  return str;
+}
+
 const Header = (props) => {
   const averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
   return (
@@ -56,7 +66,7 @@ const Header = (props) => {
       <div className={style.headerContainer}>
         <div className={style.headerTopContainer}>
           <div className={style.headerInfo}>
-            <h1>What {props.reviewsCount} People Are Saying</h1>
+            <h1>{whatPeopleWouldSay(props.reviewsCount)}</h1>
             <p className={style.emphasize}>Overall ratings and reviews</p>
             <p>Reviews can only be made by diners who have eaten at this restaurant</p>
             <div className={style.averageContainer}>

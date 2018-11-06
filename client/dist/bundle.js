@@ -22800,7 +22800,7 @@ function (_React$Component) {
     value: function fetchReviews() {
       var _this2 = this;
 
-      fetch('/restaurant/2/reviews').then(function (reviews) {
+      fetch('/restaurant/6/reviews').then(function (reviews) {
         return reviews.json();
       }).then(function (reviewsJSON) {
         _this2.setState({
@@ -23830,6 +23830,18 @@ var wouldRecommend = function wouldRecommend(list, listLength) {
   return Math.ceil(sum / listLength * 100);
 };
 
+var whatPeopleWouldSay = function whatPeopleWouldSay(number) {
+  var str = "";
+
+  if (number === 1) {
+    str += "What 1 person has to say";
+  } else if (number > 1 || number === 0) {
+    str += "What ".concat(number, " people have to say");
+  }
+
+  return str;
+};
+
 var Header = function Header(props) {
   var averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
@@ -23840,7 +23852,7 @@ var Header = function Header(props) {
     className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerTopContainer
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.headerInfo
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, "What ", props.reviewsCount, " People Are Saying"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", null, whatPeopleWouldSay(props.reviewsCount)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
     className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.emphasize
   }, "Overall ratings and reviews"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "Reviews can only be made by diners who have eaten at this restaurant"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: __WEBPACK_IMPORTED_MODULE_3__style_css___default.a.averageContainer
