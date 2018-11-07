@@ -63,12 +63,13 @@ const Header = (props) => {
   const averageRating = findOverallRatingOfRestaurant(props.restaurantInfo);
   return (
     <div className={style.topContainer}>
+      <div className={style.lengthenTopBorder}></div>
       <div className={style.headerContainer}>
         <div className={style.headerTopContainer}>
           <div className={style.headerInfo}>
-            <h1>{whatPeopleWouldSay(props.reviewsCount)}</h1>
+            <h1 className={style.titleText}>{whatPeopleWouldSay(props.reviewsCount)}</h1>
             <p className={style.emphasize}>Overall ratings and reviews</p>
-            <p>Reviews can only be made by diners who have eaten at this restaurant</p>
+            <p className={style.headerText}>Reviews can only be made by diners who have eaten at this restaurant</p>
             <div className={style.averageContainer}>
               <div className={style.avgRatingBlock}>
                 <Stars starRating={Math.floor(averageRating)}/>
@@ -86,11 +87,11 @@ const Header = (props) => {
             </div>
             <br />
             <div className={style.headerIconContainer}>
-              <img src='./noise.png' />
+              <img src='https://s3.us-east-2.amazonaws.com/noise-opentable-reviews/noise.png' />
               <span> Noise - Moderate </span>
               <br />
               <br />
-              <img src = './like.png' />
+              <img src = 'https://s3.us-east-2.amazonaws.com/like-opentable-reviews/like.png' />
               <span>&nbsp;{wouldRecommend(props.restaurantInfo, props.reviewsCount)}% of people would recommend it to a friend </span>
             </div>
           </div>
@@ -99,16 +100,17 @@ const Header = (props) => {
           </div>
         </div>
         <br />
-        <div className={style.LovedFor}>
-          <span className={style.emphasize}>Loved For </span><img src='./info.png'/>
+        <div className={style.lovedFor}>
+          <span className={style.emphasize}>Loved For </span><img src='https://s3.us-east-2.amazonaws.com/info-opentable-reviews/info.png'/>
           <br />
           <div className={style.award}>
-            <img className={style.awardText} src= './trophy.png' />
+            <img className={style.awardText} src= 'https://s3.us-east-2.amazonaws.com/trophy-opentable-reviews/trophy.png' />
             <span className={style.awardText}>&nbsp;Most Booked 1000-Point Tables</span>
             <span>{props.restaurantInfo.restaurantName}</span>
           </div>
         </div>
       </div>
+      <div className={style.lengthenBottomBorder}></div>
     </div>
   );
 }

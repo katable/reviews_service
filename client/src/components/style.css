@@ -4,10 +4,20 @@
     border-bottom: 1px solid #2d333f;
     font-family: 'Josefin Sans', sans-serif;
     color: #2d333f;
-    width: 80%;
+    width: 100%;
     height: auto;
     display: flex;
     align-items: flex-end;
+    margin-left: 10%;
+  }
+
+  .lengthenTopBorder {
+    border-bottom: 2px solid #2d333f;
+    margin-left: 10%;
+  }
+
+  .lengthenBottomBorder {
+    border-top: 2px solid #2d333f;
     margin-left: 10%;
   }
   
@@ -80,6 +90,7 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 4%;
+    margin-bottom: 5px;
   }
   
   .colored {
@@ -96,11 +107,16 @@
     font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
     margin: 15px 10% 0px 10%;
-    border-bottom: 1px solid #2d333f;
-    border-top: 1px solid #2d333f;
-    padding-top: 10px 0px 10px 5%;
+    /* border-bottom: 1px solid #2d333f; */
+    /* border-top: 1px solid #2d333f; */
+    padding: 10px 0px 10px 5%;
   }
   
+  .headerTopContainer {
+    display: inline-block;
+    width: 100%;
+  }
+
   .averageContainer {
     display: flex;
     flex-wrap: wrap;
@@ -121,28 +137,40 @@
     width: 300px;
     border-radius: 8px;
     text-align: center;
+    padding: 2px 1px 2px 1px;
   }
   
   .award:hover {
     border: 5px solid #da3743;
     outline: none;
+    padding: 0;
   }
   
   .awardText {
     margin-top: 10px;
+    font-size: 1rem;
   }
-  
+
+.lovedFor {
+    margin-top: 20px;
+  } 
+   
   /* CSS for bargraph */
   
   .bargraph {
-    display: block;
-    position: absolute;
-    top: 94px;
-    left: 60%;
+    /* display: inline-block; */
+    margin-left: 270px; /*test*/
+    margin-top: -215px; /*test*/
+  }
+
+  .bargraphContainer {
+    /* display: inline-block; */
+    margin-left: 50px;
   }
   
   .headerInfo {
     max-width: 50%;
+    /* display: inline-block; */
   }
   
   @media all and (max-width: 975px) and (min-width: 300px) {
@@ -171,7 +199,8 @@
   }
   
   .emphasize {
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 500;
   }
   
   /*Sorting CSS*/
@@ -193,16 +222,16 @@
     margin-top: 20px;
     font-size: 20px;
     display: flex;
-    justify-content: flex-start;
+    flex-flow: column wrap;
   }
 
   .dropdown {
     width: 200px;
     height: 30px;
-    margin-left: 12px;
     font-family: 'Josefin Sans', sans-serif;
     border-radius: 15px;
     justify-content: flex-start;
+    padding: 1px;
   }
   
   /*Search Container*/
@@ -211,11 +240,12 @@
     height: 10px;
     padding: 10px;
     border-radius: 5px;
-    margin-right: 800px;
-    /* margin-left: -21%; */
-    margin-left: 283px;
-    /* margin-top: 17px; */
+    margin-right: 850px;
+    margin-bottom: 20px;
+    margin-left: -2px; 
+    margin-top: 10px; 
     justify-content: flex-start;
+    padding: 10px;
   }
   /*end to fix */
 
@@ -224,7 +254,7 @@
   }
 
   form.searchContainer input[type=text]:hover{
-    border: 2px solid #da3743
+    border: 2px solid #da3743;
   }
   
   .searchButton {
@@ -237,6 +267,28 @@
     outline: none;
   }
 
-  /* #fixedWidth {
-    width: 700px 
-  } */
+  .bodyReviews {
+    width: 700px;
+  }
+
+  .sortByText {
+    font-size: 15px;
+    width: 80%;
+  }
+
+  .sortByContainer {
+    width: 80%;
+    margin-top: -9px;
+  } 
+
+  /*fontsize*/
+
+  .titleText {
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans', sans-serif
+  } 
+
+  .headerText{
+    font-size: 1rem;
+    font-weight: normal;
+  }

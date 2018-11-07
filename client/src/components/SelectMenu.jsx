@@ -3,7 +3,6 @@ import style from './style.css';
 
 const SelectMenu = (props) => (
   <div className={style.dropdownMenu}>
-    Sort By
     <select className={style.dropdown} onChange={props.onSelectHandler} value={props.value}>
       <option value ="newest">Newest</option>
       <option value="oldest">Oldest</option>

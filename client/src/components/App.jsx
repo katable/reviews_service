@@ -124,12 +124,15 @@ filterForSearchedResults(list, word) {
 
   render(){ 
     return (
-      <div>
+      <div className = {style.bodyReviews}>
         <div>
           <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
         </div>
         <div>
           <div className={style.sortingText}>
+            <div className={style.sortByContainer}>
+              <p className={style.sortByText}>Sort By</p>
+            </div>
             <div>
               <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
             </div>
