@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   fetchReviews() {
-    fetch('/restaurant/2/reviews')
+    fetch('/restaurant/6/reviews')
     .then((reviews) => {
       return reviews.json();
     })
@@ -124,14 +124,21 @@ filterForSearchedResults(list, word) {
 
   render(){ 
     return (
-      <div>
+      <div className = {style.bodyReviews}>
         <div>
           <Header reviewsCount={this.state.reviews.length} restaurantInfo = {this.state.reviews}/>
         </div>
         <div>
           <div className={style.sortingText}>
-            <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
-            <SearchBar onSearch={this.onInputSearch.bind(this)}/>
+            <div className={style.sortByContainer}>
+              <p className={style.sortByText}>Sort By</p>
+            </div>
+            <div>
+              <SelectMenu onSelectHandler={this.renderFilteredData.bind(this)} value={this.state.selectMenu.value} />
+            </div>
+            <div>
+              <SearchBar onSearch={this.onInputSearch.bind(this)}/>
+            </div>
           </div> 
         </div>
         <div>

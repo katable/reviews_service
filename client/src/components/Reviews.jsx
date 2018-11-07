@@ -38,9 +38,9 @@ const Reviews = (props) => (
             </div>
           </div>
           <div className={style.iconContainer}>
-            <img src= './flag.png' />
+            <img src= 'https://s3.us-east-2.amazonaws.com/flag-opentable-reviews/flag.png' />
             <span> Report </span>
-            <img src='./helpful.png' />
+            <img src='https://s3.us-east-2.amazonaws.com/helpful-opentable-reviews/helpful.png' />
             <span> Helpful </span>
           </div>
           <br />

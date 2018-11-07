@@ -22,7 +22,7 @@ CREATE TABLE review (
     user_id INT NOT NULL,
     author VARCHAR(50) NULL,
     review_text VARCHAR(500) NULL,
-    review_time VARCHAR(50) NOT NULL,
+    review_time VARCHAR(100) NOT NULL,
     overall_rating INT NOT NULL,
     food_rating INT NOT NULL,
     service_rating INT NOT NULL,
