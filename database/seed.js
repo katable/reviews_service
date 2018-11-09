@@ -1,6 +1,15 @@
 const db = require('../database/index.js');
 const faker = require('faker');
 
+const overallRating = (list) => {
+    let sum = 0;
+    list.forEach((review) => {
+      let combinedSum = review.food_rating + review.service_rating + review.ambience_rating;
+      sum += combinedSum;
+    })
+    return Math.ceil(sum/3);
+  }
+
 function seedData(){
     for (let i = 0; i < 100; i++) {
       let restaurantName = faker.company.companyName();
