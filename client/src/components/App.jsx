@@ -5,6 +5,7 @@ import Header from './Header.jsx';
 import SelectMenu from './SelectMenu.jsx';
 import SearchBar from './SearchBar.jsx';
 import style from './style.css';
+import Pagination from './Pagination.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -143,6 +144,9 @@ filterForSearchedResults(list, word) {
         </div>
         <div>
           {this.state.reviews.length > 0 ? this.renderReviews() : this.renderNoReviews()}
+        </div>
+        <div>
+          <Pagination />
         </div>
       </div>
     )
